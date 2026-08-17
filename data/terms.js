@@ -73,7 +73,7 @@ const TERMS = [
 { t:"能量", en:"Power Level", cat:"damage", keep:true, src:"天赋/ENLocalizationFIX", d:"全局伤害加成层数：近战/远程/技能/dot/爆炸全伤害增幅，击杀或热量叠层。", r:["暴击","弱点伤害"] },
 { t:"热量", en:"Overheat", cat:"action", keep:true, src:"灵能者武器(热量机制)", d:"灵能者武器充能资源,热量越高伤害越高;满热量进入过热状态(可能自爆)。", r:["能量","爆炸"] },
 { t:"挡反", en:"Parry", cat:"action", keep:true, src:"武器机制(恶魔爪/刺剑)", d:"特定武器格挡瞬间的反击,可弹开攻击并反击。", r:["格挡","重击"] },
-{ t:"精英", en:"Elite", cat:"damage", keep:true, src:"敌人分级(对精英伤害)", d:"精英敌人(如霰弹枪手),血量/威胁高于杂兵;有专门的伤害加成词条。", r:["专家","怪物","弱点"],
+{ t:"精英", en:"Elite", cat:"enemy", keep:true, src:"敌人分级(对精英伤害)", d:"精英敌人(如霰弹枪手),血量/威胁高于杂兵;有专门的伤害加成词条。", r:["专家","怪物","弱点"],
   children:[
     {t:"霰弹枪手", d:"血痂/渣滓霰弹枪手", detail:"官方 breed: renegade_shocktrooper 血痂霰弹枪手 / cultist_shocktrooper 渣滓霰弹枪手", enhanced:"近距离高爆发，贴脸喷子威胁大，优先远程处理或保持距离。（待校对）", armor:"默认:armored | lower_left_arm:unarmored | lower_right_arm:unarmored | upper_left_arm:unarmored | upper_left_leg:unarmored | upper_right_arm:unarmored | upper_right_leg:unarmored；默认:armored | head:unarmored | lower_left_arm:unarmored | lower_right_arm:unarmored | upper_left_leg:unarmored | upper_right_arm:unarmored | upper_right_leg:unarmored"},
     {t:"炮手", d:"血痂/渣滓炮手", detail:"官方 breed: renegade_gunner 血痂炮手 / cultist_gunner 渣滓炮手", enhanced:"持续火力压制，会压得你抬不起头；利用掩体接近或绕侧击杀。（待校对）", armor:"默认:armored | upper_left_leg:unarmored | upper_right_leg:unarmored；默认:armored | head:unarmored | lower_left_arm:unarmored | lower_right_arm:unarmored | lower_right_leg:unarmored | upper_left_arm:unarmored | upper_left_leg:unarmored | upper_right_arm:unarmored | upper_right_leg:unarmored"},
@@ -84,7 +84,7 @@ const TERMS = [
     {t:"盾卫", d:"盾卫(欧格林)", detail:"官方 breed: chaos_ogryn_bulwark；源码部位护甲：默认不屈，盾牌/手臂/腿为硬壳覆盖", enhanced:"手持一面正面无敌的盾牌，正面攻击全部被挡；绕侧、等盾牌动作间隙或从背后输出。（待校对）", armor:"默认:resistant | shield:super_armor | lower_left_arm:super_armor | lower_left_leg:super_armor | lower_right_arm:super_armor | lower_right_leg:super_armor | upper_left_arm:super_armor | upper_right_arm:super_armor"},
     {t:"收割者", d:"收割者(欧格林)", detail:"官方 breed: chaos_ogryn_gunner", enhanced:"欧格林重机枪手，火力凶猛，需要集火快速解决。（待校对）", armor:"默认:resistant | torso:armored | lower_left_arm:super_armor | lower_right_arm:super_armor | right_shoulderguard:super_armor"},
     {t:"粉碎者", d:"粉碎者(欧格林)", detail:"官方 breed: chaos_ogryn_executor", enhanced:"欧格林重击手，近战威胁大，注意闪避其重击。（待校对）", armor:"默认:super_armor"}
-  ] },{ t:"杂兵", en:"Horde (Chaff)", cat:"damage", keep:true, src:"官方 breed(breed_display_name_*)", d:"基础敌人，成群出现组成潮群；个体弱但数量多，清潮武器高效。", r:["精英","专家","怪物","清潮伤害"],
+  ] },{ t:"杂兵", en:"Horde (Chaff)", cat:"enemy", keep:true, src:"官方 breed(breed_display_name_*)", d:"基础敌人，成群出现组成潮群；个体弱但数量多，清潮武器高效。", r:["精英","专家","怪物","清潮伤害"],
   children:[
     {t:"瘟疫行者", d:"纳垢感染体基础杂兵", detail:"官方 breed: chaos_poxwalker", enhanced:"潮群主力，成群出现；清潮武器高效，注意被围。（待校对）", armor:"默认:disgustingly_resilient"},
     {t:"变异瘟疫行者", d:"变异瘟疫行者", detail:"官方 breed: chaos_lesser_mutated_poxwalker", enhanced:"轻微变异，比普通行者略强。（待校对）", armor:"默认:disgustingly_resilient"},
@@ -98,7 +98,7 @@ const TERMS = [
     {t:"疤痂先锋", d:"疤痂先锋", detail:"官方 breed: renegade_vanguard", enhanced:"先锋突袭单位。（待校对）", armor:"默认:armored | shield:super_armor | upper_left_leg:unarmored | upper_right_leg:unarmored"},
     {t:"血痂射手", d:"血痂射手(步枪兵)", detail:"官方 breed: renegade_rifleman", enhanced:"远程步枪兵，掩体对射目标。（待校对）", armor:"默认:armored | upper_left_arm:unarmored | upper_left_leg:unarmored | upper_right_arm:unarmored | upper_right_leg:unarmored"}
   ] },
-{ t:"专家", en:"Specialist", cat:"damage", keep:true, src:"敌人分级(对专家伤害)", d:"带特殊能力的敌人(如喷火兵/狙击手),需优先处理。", r:["精英","怪物"],
+{ t:"专家", en:"Specialist", cat:"enemy", keep:true, src:"敌人分级(对专家伤害)", d:"带特殊能力的敌人(如喷火兵/狙击手),需优先处理。", r:["精英","怪物"],
   children:[
     {t:"火焰兵", d:"血痂火焰兵/渣滓剧毒火焰兵", detail:"官方 breed: renegade_flamer 血痂火焰兵 / cultist_flamer 渣滓剧毒火焰兵", enhanced:"火焰喷射近身伤害高，保持距离优先远程击杀。（待校对）", armor:"默认:berserker；默认:berserker"},
     {t:"轰炸者", d:"血痂轰炸者", detail:"官方 breed: renegade_grenadier", enhanced:"投掷手雷轰炸，注意爆炸预警，拉开距离或提前处理。（待校对）", armor:"默认:armored | head:unarmored | lower_left_arm:unarmored | lower_right_arm:unarmored"},
@@ -110,8 +110,8 @@ const TERMS = [
     {t:"瘟疫爆破手", d:"瘟疫爆破手(携带炸弹)", detail:"官方 breed: chaos_poxwalker_bomber；注意与自爆怪「瘟疫爆者」不同", enhanced:"携带炸弹的行走尸，接近自爆范围大；远程击杀最稳。（待校对）", armor:"默认:disgustingly_resilient"},
     {t:"变种人", d:"变种人(渣滓)", detail:"官方 breed: cultist_mutant", enhanced:"高速冲锋抓人，被抓会甩飞；听到吼声准备闪避或打断。（待校对）", armor:"默认:berserker"}
   ] },
-{ t:"怪物", en:"Monster", cat:"damage", keep:true, src:"敌人分级(对怪物伤害)", d:"大型头目(纳垢兽/混沌卵等),高血量高威胁,需要集火。", r:["精英","专家"] },
-{ t:"Boss", en:"Boss", cat:"damage", keep:true, src:"官方名称(breed_display_name_*)/用户确认", d:"游戏中的首领级敌人，分为人形（叛徒连长/邪教勇士/中尉）与怪物（纳垢兽/混沌魔物/恶魔宿主）。", r:["怪物","精英","专家"],
+{ t:"怪物", en:"Monster", cat:"enemy", keep:true, src:"敌人分级(对怪物伤害)", d:"大型头目(纳垢兽/混沌卵等),高血量高威胁,需要集火。", r:["精英","专家"] },
+{ t:"Boss", en:"Boss", cat:"enemy", keep:true, src:"官方名称(breed_display_name_*)/用户确认", d:"游戏中的首领级敌人，分为人形（叛徒连长/邪教勇士/中尉）与怪物（纳垢兽/混沌魔物/恶魔宿主）。", r:["怪物","精英","专家"],
   children:[
     {t:"叛徒连长", d:"血痂阵营首领级敌人", detail:"官方名「血痂头目」；源码带虚空盾部位(captain_void_shield)。故事反派沃尔弗队长未实装，不单列。", enhanced:"血痂阵营的首领级敌人（如血痂头目）。故事中的沃尔弗队长为未实装反派，故用笼统称呼。（待校对）", type:"人形", armor:"默认:armored"},
     {t:"邪教勇士", d:"渣滓阵营首领级敌人", detail:"官方名「告诫教勇士」。", enhanced:"渣滓/告诫教阵营的首领级敌人（如告诫教勇士）。（待校对）", type:"人形", armor:"默认:armored"},
