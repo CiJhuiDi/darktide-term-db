@@ -135,7 +135,7 @@ const TERMS = [
 { t:"暴击伤害", en:"Critical Damage", cat:"damage", keep:true, src:"武器属性(对狂人/感染/不屈敌人)", d:"暴击时造成的额外伤害倍率。", r:["暴击","暴击几率"] },
 { t:"弱点伤害", en:"Weakspot Damage", cat:"damage", keep:true, src:"天赋/武器属性", d:"命中弱点部位(多为头部)时造成的伤害。", r:["弱点","暴击"] },
 { t:"弱点", en:"Weakspot", cat:"damage", keep:true, src:"大量天赋/成就", d:"敌人身上受击伤害更高的部位。", r:["弱点伤害","爆头"] },
-{ t:"爆头", en:"Headshot", cat:"damage", keep:true, src:"成就/语音", d:"命中头部的弱点攻击，属于弱点伤害的一种。", r:["弱点","弱点伤害"] },{ t:"秒杀", en:"Instakill", cat:"damage", keep:true, src:"官方天赋(暴击秒杀)/ENLocalizationFIX(Haymaker 干草机重击秒杀)", d:"立即击杀效果，通常有触发条件且仅对人形敌人生效：如暴击时敌人当前生命值低于该暴击伤害的 X 倍则秒杀；Haymaker（干草机）重击有几率秒杀人形敌人。", r:["人形","暴击","重击"] },
+{ t:"爆头", en:"Headshot", cat:"damage", keep:true, src:"成就/语音", d:"命中头部的弱点攻击，属于弱点伤害的一种。", r:["弱点","弱点伤害"] },{ t:"秒杀", en:"Instakill", cat:"damage", keep:true, src:"官方天赋(暴击秒杀)/ENLocalizationFIX(Haymaker 干草机重击秒杀)", d:"立即击杀效果，通常有触发条件且仅对人形敌人生效：如暴击时敌人当前生命值低于该暴击伤害的 X 倍则秒杀；Haymaker（干草机）重击有几率秒杀人形敌人。对人形 Boss 无效（Boss 免疫秒杀）。", r:["人形","暴击","重击","Boss"] },
 { t:"撕裂", en:"Rending", cat:"damage", keep:true, src:"天赋/ENLocalizationFIX", d:"降低目标护甲减伤（破甲），仅自身生效；叠加超 100% 后超出部分收益降至 1/4，对无甲/感染 100% 封顶；与脆弱（增伤 debuff）可叠加。", r:["护甲","脆弱"] },
 { t:"脆弱", en:"Brittleness", cat:"damage", keep:true, src:"天赋/ENLocalizationFIX", d:"受伤加深 debuff：直击/推搡可施加，每层 2.5%，上限 40%（16 层），全队有效；与撕裂（破甲）常配合。", r:["撕裂","护甲","电击"] },
 { t:"链锯撕裂", en:"Sawing", cat:"damage", keep:false, src:"武器属性(链锯撕裂伤害)", d:"链锯类武器的锯割伤害机制，与撕裂(破甲)无关。", r:["特殊攻击","撕裂"] },
@@ -240,7 +240,7 @@ const TERMS = [
     {t:"瘟疫爆破手", d:"瘟疫爆破手(携带炸弹)", detail:"官方 breed: chaos_poxwalker_bomber；注意与自爆怪「瘟疫爆者」不同", enhanced:"携带炸弹的行走尸，接近自爆范围大；远程击杀最稳。（待校对）", armor:"默认:disgustingly_resilient"},
     {t:"变种人", d:"变种人(渣滓)", detail:"官方 breed: cultist_mutant", enhanced:"高速冲锋抓人，被抓会甩飞；听到吼声准备闪避或打断。（待校对）", armor:"默认:berserker"}
   ] },
-{ t:"怪物", en:"Monster", cat:"enemy", keep:true, src:"敌人分级(对怪物伤害)", d:"大型头目(纳垢兽/混沌卵等),高血量高威胁,需要集火。", r:["精英","专家"] },{ t:"人形", en:"Humanoid", cat:"enemy", keep:true, src:"官方天赋(loc_talent_broker_passive_melee_crit_instakill_desc)/ENLocalizationFIX(Haymaker 干草机)", d:"敌人体型分类：人型尺寸的敌人（官方称「人型」，与欧格林/怪物相对）；部分秒杀效果仅对人形敌人生效（如暴击秒杀、Haymaker 重击秒杀）。", r:["杂兵","精英","专家","秒杀"] },
+{ t:"怪物", en:"Monster", cat:"enemy", keep:true, src:"敌人分级(对怪物伤害)", d:"大型头目(纳垢兽/混沌卵等),高血量高威胁,需要集火。", r:["精英","专家"] },{ t:"人形", en:"Humanoid", cat:"enemy", keep:true, src:"官方天赋(loc_talent_broker_passive_melee_crit_instakill_desc)/ENLocalizationFIX(Haymaker 干草机)", d:"敌人体型分类：人型尺寸的敌人（官方称「人型」，与欧格林/怪物相对）；部分秒杀效果仅对人形敌人生效（如暴击秒杀、Haymaker 重击秒杀）；人形 Boss 虽属人形但免疫秒杀。", r:["杂兵","精英","专家","秒杀","Boss"] },
 { t:"Boss", en:"Boss", cat:"enemy", keep:true, src:"官方名称(breed_display_name_*)/用户确认", d:"游戏中的首领级敌人，分为人形（叛徒连长/邪教勇士/中尉）与怪物（纳垢兽/混沌魔物/恶魔宿主）。", r:["怪物","精英","专家"],
   children:[
     {t:"叛徒连长", d:"血痂阵营首领级敌人", detail:"官方名「血痂头目」；源码带虚空盾部位(captain_void_shield)。故事反派沃尔弗队长未实装，不单列。", enhanced:"血痂阵营的首领级敌人（如血痂头目）。故事中的沃尔弗队长为未实装反派，故用笼统称呼。（待校对）", type:"人形", armor:"默认:armored"},
