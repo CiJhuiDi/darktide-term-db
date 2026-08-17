@@ -80,8 +80,8 @@ const TERMS = [
     {t:"无线电操作员", d:"血痂无线电操作员", detail:"官方 breed: renegade_radio_operator（英文未翻译）", enhanced:"呼叫增援/干扰，优先击杀避免被拖入消耗战。（待校对）"},
     {t:"等离子炮手", d:"血痂等离子炮手", detail:"官方 breed: renegade_plasma_gunner", enhanced:"等离子武器高伤，命中即大残；优先处理，别让它站桩输出。（待校对）"},
     {t:"狂暴者", d:"血痂/渣滓狂暴者", detail:"官方 breed: renegade_berzerker 血痂狂暴者 / cultist_berzerker 渣滓狂暴者", enhanced:"近战狂徒，攻速快伤害高，多用推搡打断或集火秒杀。（待校对）"},
-    {t:"重锤兵", d:"血痂重锤兵", detail:"官方 breed: renegade_executor", enhanced:"重锤砸地范围大，注意躲避前摇；头部为硬壳、身体为防弹，优先瞄头或绕背输出。（待校对）"},
-    {t:"盾卫", d:"盾卫(欧格林)", detail:"官方 breed: chaos_ogryn_bulwark", enhanced:"手持一面正面无敌的盾牌，正面攻击全部被挡；绕侧、等盾牌动作间隙或从背后输出。（待校对）"},
+    {t:"重锤兵", d:"血痂重锤兵", detail:"官方 breed: renegade_executor；源码部位护甲：默认防弹，头部为硬壳覆盖", enhanced:"重锤砸地范围大，注意躲避前摇；头部为硬壳、身体为防弹，优先瞄头或绕背输出。（待校对）"},
+    {t:"盾卫", d:"盾卫(欧格林)", detail:"官方 breed: chaos_ogryn_bulwark；源码部位护甲：默认不屈，盾牌/手臂/腿为硬壳覆盖", enhanced:"手持一面正面无敌的盾牌，正面攻击全部被挡；绕侧、等盾牌动作间隙或从背后输出。（待校对）"},
     {t:"收割者", d:"收割者(欧格林)", detail:"官方 breed: chaos_ogryn_gunner", enhanced:"欧格林重机枪手，火力凶猛，需要集火快速解决。（待校对）"},
     {t:"粉碎者", d:"粉碎者(欧格林)", detail:"官方 breed: chaos_ogryn_executor", enhanced:"欧格林重击手，近战威胁大，注意闪避其重击。（待校对）"}
   ] },{ t:"杂兵", en:"Horde (Chaff)", cat:"damage", keep:true, src:"官方 breed(breed_display_name_*)", d:"基础敌人，成群出现组成潮群；个体弱但数量多，清潮武器高效。", r:["精英","专家","怪物","清潮伤害"],
@@ -113,9 +113,9 @@ const TERMS = [
 { t:"怪物", en:"Monster", cat:"damage", keep:true, src:"敌人分级(对怪物伤害)", d:"大型头目(纳垢兽/混沌卵等),高血量高威胁,需要集火。", r:["精英","专家"] },
 { t:"Boss", en:"Boss", cat:"damage", keep:true, src:"官方名称(breed_display_name_*)/用户确认", d:"游戏中的首领级敌人，分为人形（叛徒连长/邪教勇士/中尉）与怪物（纳垢兽/混沌魔物/恶魔宿主）。", r:["怪物","精英","专家"],
   children:[
-    {t:"叛徒连长", d:"血痂阵营首领级敌人", detail:"官方名「血痂头目」；故事反派沃尔弗队长未实装，不单列。", enhanced:"血痂阵营的首领级敌人（如血痂头目）。故事中的沃尔弗队长为未实装反派，故用笼统称呼。（待校对）", type:"人形"},
+    {t:"叛徒连长", d:"血痂阵营首领级敌人", detail:"官方名「血痂头目」；源码带虚空盾部位(captain_void_shield)。故事反派沃尔弗队长未实装，不单列。", enhanced:"血痂阵营的首领级敌人（如血痂头目）。故事中的沃尔弗队长为未实装反派，故用笼统称呼。（待校对）", type:"人形"},
     {t:"邪教勇士", d:"渣滓阵营首领级敌人", detail:"官方名「告诫教勇士」。", enhanced:"渣滓/告诫教阵营的首领级敌人（如告诫教勇士）。（待校对）", type:"人形"},
-    {t:"中尉", d:"浩劫任务首领(社区称双子队长)", detail:"浩劫随机名如「托别恩·奥克里尔中尉」。", enhanced:"浩劫任务中的首领级敌人，官方随机名如「托别恩·奥克里尔中尉」；玩家社区通称「双子队长」。（待校对）", type:"人形"},
+    {t:"中尉", d:"浩劫任务首领(社区称双子队长)", detail:"浩劫随机名如「托别恩·奥克里尔中尉」；源码双子(Rodin Karnak)默认护甲为虚空盾", enhanced:"浩劫任务中的首领级敌人，官方随机名如「托别恩·奥克里尔中尉」；玩家社区通称「双子队长」。（待校对）", type:"人形"},
     {t:"纳垢兽", d:"纳垢巨型野兽,怪物级首领", detail:"官方名(breed_display_name_chaos_beast_of_nurgle)。", enhanced:"纳垢的巨型野兽，怪物级首领，需要集火处理。（待校对）", type:"怪物"},
     {t:"混沌魔物", d:"混沌魔物,怪物级首领", detail:"官方名(breed_display_name_chaos_spawn)；社区俗称「混沌卵」。", enhanced:"混沌魔物（Chaos Spawn），怪物级首领；社区俗称「混沌卵」。（待校对）", type:"怪物"},
     {t:"恶魔宿主", d:"恶魔附身宿主,怪物级首领", detail:"官方名；有「咒缚恶魔宿主」变体。", enhanced:"被恶魔附身的宿主，怪物级首领；有「咒缚恶魔宿主」变体。（待校对）", type:"怪物"},

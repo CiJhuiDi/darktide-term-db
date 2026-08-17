@@ -1,0 +1,1344 @@
+[
+ {
+  "breed": "",
+  "display": "loc_breed_display_name_undefined",
+  "cn": "",
+  "faction": "imperium",
+  "armor_type": "player",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "",
+  "display": "loc_breed_display_name_undefined",
+  "cn": "",
+  "faction": "imperium",
+  "armor_type": "player",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "",
+  "display": "loc_breed_display_name_undefined",
+  "cn": "",
+  "faction": "imperium",
+  "armor_type": "player",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "",
+  "display": "loc_breed_display_name_undefined",
+  "cn": "",
+  "faction": "imperium",
+  "armor_type": "",
+  "hit_zones": [
+   "center_mass"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "",
+  "display": "loc_breed_display_name_undefined",
+  "cn": "",
+  "faction": "imperium",
+  "armor_type": "",
+  "hit_zones": [
+   "center_mass"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "attack_valkyrie",
+  "display": "loc_breed_display_name_attack_valkyrie",
+  "cn": "",
+  "faction": "imperium",
+  "armor_type": "armored",
+  "hit_zones": [
+   "center_mass"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_armored_hound",
+  "display": "loc_breed_display_name_chaos_armored_hound",
+  "cn": "装甲瘟疫猎犬",
+  "faction": "chaos",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "hound_tail",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "lower_left_arm": "disgustingly_resilient",
+   "lower_right_arm": "disgustingly_resilient",
+   "lower_left_leg": "disgustingly_resilient",
+   "lower_right_leg": "disgustingly_resilient",
+   "hound_tail": "disgustingly_resilient",
+   "head": "super_armor"
+  }
+ },
+ {
+  "breed": "chaos_armored_infected",
+  "display": "loc_chaos_armored_infected_breed_name",
+  "cn": "披甲呻吟者",
+  "faction": "chaos",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "upper_right_leg": "unarmored",
+   "upper_left_leg": "unarmored",
+   "lower_right_leg": "unarmored",
+   "lower_left_leg": "unarmored",
+   "lower_right_arm": "unarmored",
+   "lower_left_arm": "unarmored",
+   "head": "unarmored"
+  }
+ },
+ {
+  "breed": "chaos_beast_of_nurgle",
+  "display": "loc_breed_display_name_chaos_beast_of_nurgle",
+  "cn": "纳垢兽",
+  "faction": "chaos",
+  "armor_type": "resistant",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "lower_tail",
+   "tongue",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg",
+   "upper_tail",
+   "weakspot"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_daemonhost",
+  "display": "loc_breed_display_name_chaos_daemonhost",
+  "cn": "恶魔宿主",
+  "faction": "chaos",
+  "armor_type": "resistant",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_hound",
+  "display": "loc_breed_display_name_chaos_hound",
+  "cn": "瘟疫猎犬",
+  "faction": "chaos",
+  "armor_type": "disgustingly_resilient",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_hound",
+  "display": "loc_breed_display_name_chaos_hound",
+  "cn": "瘟疫猎犬",
+  "faction": "chaos",
+  "armor_type": "disgustingly_resilient",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_lesser_mutated_poxwalker",
+  "display": "loc_breed_display_name_chaos_lesser_mutated_poxwalker",
+  "cn": "变异瘟疫行者",
+  "faction": "chaos",
+  "armor_type": "disgustingly_resilient",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_mutated_poxwalker",
+  "display": "loc_breed_display_name_chaos_mutated_poxwalker",
+  "cn": "触手瘟疫行者",
+  "faction": "chaos",
+  "armor_type": "disgustingly_resilient",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "tentacle",
+   "torso",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_mutator_daemonhost",
+  "display": "loc_breed_display_name_chaos_daemonhost",
+  "cn": "恶魔宿主",
+  "faction": "chaos",
+  "armor_type": "resistant",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_mutator_ritualist",
+  "display": "loc_breed_display_name_cultist_ritualist",
+  "cn": "渣滓仪式师",
+  "faction": "cultist",
+  "armor_type": "unarmored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_newly_infected",
+  "display": "loc_breed_display_name_chaos_newly_infected",
+  "cn": "呻吟者",
+  "faction": "chaos",
+  "armor_type": "unarmored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_ogryn_bulwark",
+  "display": "loc_breed_display_name_chaos_ogryn_bulwark",
+  "cn": "盾卫",
+  "faction": "chaos",
+  "armor_type": "resistant",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "shield",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "shield": "super_armor",
+   "lower_left_arm": "super_armor",
+   "lower_right_arm": "super_armor",
+   "upper_left_arm": "super_armor",
+   "upper_right_arm": "super_armor",
+   "lower_left_leg": "super_armor",
+   "lower_right_leg": "super_armor"
+  }
+ },
+ {
+  "breed": "chaos_ogryn_executor",
+  "display": "loc_breed_display_name_chaos_ogryn_executor",
+  "cn": "粉碎者",
+  "faction": "chaos",
+  "armor_type": "super_armor",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_ogryn_gunner",
+  "display": "loc_breed_display_name_chaos_ogryn_gunner",
+  "cn": "收割者",
+  "faction": "chaos",
+  "armor_type": "resistant",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "right_shoulderguard",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "right_shoulderguard": "super_armor",
+   "torso": "armored",
+   "lower_left_arm": "super_armor",
+   "lower_right_arm": "super_armor"
+  }
+ },
+ {
+  "breed": "chaos_ogryn_houndmaster",
+  "display": "loc_breed_display_name_chaos_ogryn_houndmaster",
+  "cn": "猎群之主",
+  "faction": "chaos",
+  "armor_type": "resistant",
+  "hit_zones": [
+   "afro",
+   "canister",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "super_armor",
+   "upper_left_arm": "super_armor",
+   "lower_left_arm": "super_armor",
+   "upper_right_leg": "armored",
+   "lower_right_leg": "armored",
+   "upper_left_leg": "armored",
+   "lower_left_leg": "armored",
+   "canister": "super_armor"
+  }
+ },
+ {
+  "breed": "chaos_plague_ogryn",
+  "display": "loc_breed_display_name_chaos_plage_ogryn",
+  "cn": "瘟疫欧格林",
+  "faction": "chaos",
+  "armor_type": "resistant",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_poxwalker",
+  "display": "loc_breed_display_name_chaos_poxwalker",
+  "cn": "瘟疫行者",
+  "faction": "chaos",
+  "armor_type": "disgustingly_resilient",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_poxwalker_bomber",
+  "display": "loc_breed_display_name_chaos_poxwalker_bomber",
+  "cn": "瘟疫爆破手",
+  "faction": "chaos",
+  "armor_type": "disgustingly_resilient",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "chaos_spawn",
+  "display": "loc_breed_display_name_chaos_spawn",
+  "cn": "混沌魔物",
+  "faction": "chaos",
+  "armor_type": "resistant",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_assault",
+  "display": "loc_breed_display_name_cultist_assault",
+  "cn": "渣滓潜行者",
+  "faction": "cultist",
+  "armor_type": "unarmored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_berzerker",
+  "display": "loc_breed_display_name_cultist_berzerker",
+  "cn": "渣滓狂暴者",
+  "faction": "cultist",
+  "armor_type": "berserker",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_captain",
+  "display": "loc_breed_display_name_cultist_captain",
+  "cn": "告诫教勇士",
+  "faction": "cultist",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "captain_void_shield",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_flamer",
+  "display": "loc_breed_display_name_cultist_flamer",
+  "cn": "渣滓剧毒火焰兵",
+  "faction": "cultist",
+  "armor_type": "berserker",
+  "hit_zones": [
+   "afro",
+   "backpack",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_grenadier",
+  "display": "loc_breed_display_name_cultist_grenadier",
+  "cn": "渣滓剧毒轰炸者",
+  "faction": "cultist",
+  "armor_type": "unarmored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_gunner",
+  "display": "loc_breed_display_name_cultist_gunner",
+  "cn": "渣滓炮手",
+  "faction": "cultist",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "unarmored",
+   "upper_right_leg": "unarmored",
+   "lower_right_leg": "unarmored",
+   "upper_left_leg": "unarmored",
+   "upper_right_arm": "unarmored",
+   "lower_right_arm": "unarmored",
+   "lower_left_arm": "unarmored",
+   "upper_left_arm": "unarmored"
+  }
+ },
+ {
+  "breed": "cultist_melee",
+  "display": "loc_breed_display_name_cultist_melee",
+  "cn": "渣滓格斗兵",
+  "faction": "cultist",
+  "armor_type": "unarmored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "armored"
+  }
+ },
+ {
+  "breed": "cultist_mutant",
+  "display": "loc_breed_display_name_cultist_mutant",
+  "cn": "变种人",
+  "faction": "cultist",
+  "armor_type": "berserker",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_mutant_mutator",
+  "display": "loc_breed_display_name_cultist_mutant",
+  "cn": "变种人",
+  "faction": "cultist",
+  "armor_type": "berserker",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_ritualist",
+  "display": "loc_breed_display_name_cultist_ritualist",
+  "cn": "渣滓仪式师",
+  "faction": "cultist",
+  "armor_type": "unarmored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "cultist_shocktrooper",
+  "display": "loc_breed_display_name_cultist_shocktrooper",
+  "cn": "渣滓霰弹枪手",
+  "faction": "cultist",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "unarmored",
+   "upper_right_arm": "unarmored",
+   "lower_right_arm": "unarmored",
+   "upper_right_leg": "unarmored",
+   "lower_left_arm": "unarmored",
+   "upper_left_leg": "unarmored"
+  }
+ },
+ {
+  "breed": "cultist_vanguard",
+  "display": "loc_breed_display_name_cultist_vanguard",
+  "cn": "渣滓先锋",
+  "faction": "renegade",
+  "armor_type": "unarmored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "shield",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "armored",
+   "shield": "super_armor"
+  }
+ },
+ {
+  "breed": "nurgle_flies",
+  "display": "loc_breed_display_name_chaos_spawn",
+  "cn": "混沌魔物",
+  "faction": "chaos",
+  "armor_type": "",
+  "hit_zones": [
+   "center_mass"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "renegade_assault",
+  "display": "loc_breed_display_name_renegade_assault",
+  "cn": "血痂潜行者",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "upper_right_leg": "unarmored",
+   "upper_left_leg": "unarmored",
+   "lower_right_leg": "unarmored",
+   "lower_left_leg": "unarmored",
+   "upper_right_arm": "unarmored",
+   "upper_left_arm": "unarmored",
+   "lower_right_arm": "unarmored",
+   "lower_left_arm": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_berzerker",
+  "display": "loc_breed_display_name_renegade_berzerker",
+  "cn": "血痂狂暴者",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "center_mass": "super_armor",
+   "torso": "super_armor"
+  }
+ },
+ {
+  "breed": "renegade_captain",
+  "display": "loc_breed_display_name_renegade_captain",
+  "cn": "血痂头目",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "captain_void_shield",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "renegade_executor",
+  "display": "loc_breed_display_name_renegade_executor",
+  "cn": "血痂重锤兵",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "super_armor"
+  }
+ },
+ {
+  "breed": "renegade_flamer",
+  "display": "loc_breed_display_name_renegade_flamer",
+  "cn": "血痂火焰兵",
+  "faction": "renegade",
+  "armor_type": "berserker",
+  "hit_zones": [
+   "afro",
+   "backpack",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "renegade_flamer_mutator",
+  "display": "loc_breed_display_name_renegade_flamer",
+  "cn": "血痂火焰兵",
+  "faction": "renegade",
+  "armor_type": "berserker",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "renegade_grenadier",
+  "display": "loc_breed_display_name_renegade_grenadier",
+  "cn": "血痂轰炸者",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "unarmored",
+   "lower_left_arm": "unarmored",
+   "lower_right_arm": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_gunner",
+  "display": "loc_breed_display_name_renegade_gunner",
+  "cn": "血痂炮手",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "upper_right_leg": "unarmored",
+   "upper_left_leg": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_melee",
+  "display": "loc_breed_display_name_renegade_melee",
+  "cn": "血痂格斗兵",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "unarmored",
+   "upper_right_leg": "unarmored",
+   "upper_left_leg": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_netgunner",
+  "display": "loc_breed_display_name_renegade_netgunner",
+  "cn": "血痂陷阱手",
+  "faction": "renegade",
+  "armor_type": "berserker",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "renegade_plasma_gunner",
+  "display": "loc_breed_display_name_renegade_plasma_gunner",
+  "cn": "血痂等离子炮手",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "upper_right_leg": "unarmored",
+   "upper_left_leg": "unarmored",
+   "upper_right_arm": "unarmored",
+   "upper_left_arm": "unarmored",
+   "head": "super_armor"
+  }
+ },
+ {
+  "breed": "renegade_radio_operator",
+  "display": "loc_breed_display_name_renegade_radio_operator",
+  "cn": "Scab Radio Operator",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "upper_right_leg": "unarmored",
+   "upper_left_leg": "unarmored",
+   "head": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_rifleman",
+  "display": "loc_breed_display_name_renegade_rifleman",
+  "cn": "血痂射手",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "upper_right_leg": "unarmored",
+   "upper_left_leg": "unarmored",
+   "upper_right_arm": "unarmored",
+   "upper_left_arm": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_shocktrooper",
+  "display": "loc_breed_display_name_renegade_shocktrooper",
+  "cn": "血痂霰弹枪手",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "upper_right_arm": "unarmored",
+   "lower_right_arm": "unarmored",
+   "upper_right_leg": "unarmored",
+   "upper_left_arm": "unarmored",
+   "lower_left_arm": "unarmored",
+   "upper_left_leg": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_sniper",
+  "display": "loc_breed_display_name_renegade_sniper",
+  "cn": "血痂狙击手",
+  "faction": "renegade",
+  "armor_type": "unarmored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {}
+ },
+ {
+  "breed": "renegade_twin_captain",
+  "display": "loc_breed_display_name_renegade_twin_captain",
+  "cn": "Rodin Karnak",
+  "faction": "renegade",
+  "armor_type": "void_shield",
+  "hit_zones": [
+   "afro",
+   "captain_void_shield",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "super_armor",
+   "upper_left_arm": "super_armor",
+   "upper_right_arm": "unarmored",
+   "upper_left_leg": "unarmored",
+   "upper_right_leg": "unarmored",
+   "lower_left_leg": "unarmored",
+   "lower_right_leg": "unarmored",
+   "center_mass": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_twin_captain_two",
+  "display": "loc_breed_display_name_renegade_twin_captain_two",
+  "cn": "Rinda Karnak",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "captain_void_shield",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "head": "super_armor",
+   "upper_left_arm": "unarmored",
+   "upper_right_arm": "super_armor",
+   "lower_left_arm": "unarmored",
+   "upper_left_leg": "unarmored",
+   "upper_right_leg": "unarmored",
+   "lower_left_leg": "unarmored",
+   "lower_right_leg": "unarmored",
+   "center_mass": "unarmored"
+  }
+ },
+ {
+  "breed": "renegade_vanguard",
+  "display": "loc_breed_display_name_renegade_vanguard",
+  "cn": "疤痂先锋",
+  "faction": "renegade",
+  "armor_type": "armored",
+  "hit_zones": [
+   "afro",
+   "center_mass",
+   "head",
+   "lower_left_arm",
+   "lower_left_leg",
+   "lower_right_arm",
+   "lower_right_leg",
+   "shield",
+   "torso",
+   "upper_left_arm",
+   "upper_left_leg",
+   "upper_right_arm",
+   "upper_right_leg"
+  ],
+  "overrides": {
+   "shield": "super_armor",
+   "upper_right_leg": "unarmored",
+   "upper_left_leg": "unarmored"
+  }
+ },
+ {
+  "breed": "sand_vortex",
+  "display": "loc_breed_display_name_chaos_spawn",
+  "cn": "混沌魔物",
+  "faction": "chaos",
+  "armor_type": "",
+  "hit_zones": [
+   "center_mass"
+  ],
+  "overrides": {}
+ }
+]
