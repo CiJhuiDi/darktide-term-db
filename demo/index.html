@@ -398,14 +398,29 @@ function renderList() {
       };
       el.appendChild(node);
       if (open) {
+        const childGroups = {};
         x.children.forEach(c => {
-          const path = x.t + "/" + c.t;
-          const d = document.createElement("div");
-          d.className = "list-item child" + (curPath === path ? " active" : "");
-          d.innerHTML = `<span class="dot ${x.keep ? "keep" : "pending"}"></span>
-            <span class="name">${c.t}</span>`;
-          d.onclick = () => { curPath = path; renderList(); renderDetail(); };
-          el.appendChild(d);
+          const g = c.type || "";
+          (childGroups[g] = childGroups[g] || []).push(c);
+        });
+        const GROUP_ICON = { 人形: "🧍 ", 怪物: "👹 ", 固定: "📌 ", 轮换: "🎲 ", 环境: "🌍 " };
+        Object.keys(childGroups).forEach(g => {
+          if (g && x.children.length > 1) {
+            const label = (GROUP_ICON[g] || "") + (g === "人形" ? "人形 Boss" : g === "怪物" ? "怪物 Boss" : g);
+            const h = document.createElement("div");
+            h.style.cssText = "padding:4px 14px 2px 26px;font-size:11px;color:#8b949e;font-weight:600;user-select:none";
+            h.textContent = label + `（${childGroups[g].length}）`;
+            el.appendChild(h);
+          }
+          childGroups[g].forEach(c => {
+            const path = x.t + "/" + c.t;
+            const d = document.createElement("div");
+            d.className = "list-item child" + (curPath === path ? " active" : "");
+            d.innerHTML = `<span class="dot ${x.keep ? "keep" : "pending"}"></span>
+              <span class="name">${c.t}</span>`;
+            d.onclick = () => { curPath = path; renderList(); renderDetail(); };
+            el.appendChild(d);
+          });
         });
       }
     } else {
