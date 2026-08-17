@@ -187,4 +187,7 @@ const TERMS = [
 { t:"狩猎场", en:"Hunting Grounds", cat:"mission", keep:true, src:"词条(狩猎场)", d:"精英/专家敌人显著增多。", r:["词条"] },
 { t:"突击部队挑战", en:"Waves of Specials", cat:"mission", keep:true, src:"词条(突击部队挑战)", d:"特殊敌人（专家）以波次形式来袭。", r:["词条"] },
 { t:"高强度", en:"Increased Resistance", cat:"mission", keep:true, src:"词条(高强度挑战)", d:"敌人更强/更多的高难词条（高强度挑战、高强度交战区等）。", r:["词条"] },
+
+{ t:"电刑", en:"Electrocuted", cat:"状态", keep:true, src:"minion_buff_templates.lua: houndmaster_electrocution", d:"猎群之主攻击命中施加的状态；持续10秒(最多2层)：冲刺移速-5%/层、耐力消耗×2、耐力回复-75%、闪避冷却延长；屏幕出现触电特效。", r:["猎群之主"] },
+{ t:"韧性削减", en:"Toughness Reduction", cat:"状态", keep:true, src:"minion_buff_templates.lua: plasma_gunner_toughness_reduction", d:"血痂等离子炮手命中施加的状态；持续5秒：韧性回复速度-50%、韧性补充量-50%。", r:["等离子炮手"] },
 ];
