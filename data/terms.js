@@ -105,8 +105,8 @@ const TERMS = [
     {t:"大漩涡任务E-I-III-VII", d:"", detail:"专家级敌人、瘟疫毒气、狩猎场、变异人。", enhanced:"\u4e13\u5bb6 + \u761f\u75ab\u6bd2\u6c14 + \u72e9\u730e\u573a + \u53d8\u5f02\u4eba\uff1a\u56db\u91cd\u538b\u529b\uff0c\u6bd2\u533a+\u7cbe\u82f1+\u53d8\u5f02\u4eba\uff0c\u8fb9\u8d70\u8fb9\u6e05\uff0c\u51c0\u5316\u4f18\u5148\u3002"},
     {t:"大漩涡任务J-I-II-VI", d:"", detail:"专家级敌人、瘟疫毒气、怪物专家（专家级敌人有几率变为较弱的怪物），近战敌人较多。", enhanced:"\u4e13\u5bb6 + \u761f\u75ab\u6bd2\u6c14 + \u602a\u7269\u4e13\u5bb6 + \u8fd1\u6218\u8f83\u591a\uff1a\u6bd2\u533a + \u8fd1\u6218\u6d77\uff0c\u4fdd\u6301\u8ddd\u79bb\u7528\u8303\u56f4\u6b66\u5668\uff0c\u6ce8\u610f\u7cbe\u82f1\u53d8\u5f02\u3002"}
   ] },
-{ t:"浩劫", en:"Havoc", cat:"mission", keep:true, src:"浩劫模式/任务/官方描述", d:"35 级后解锁的高难周常模式，有专属任务订单与词条；需先完成大漩涡任务证明资格。", r:["大漩涡","词条"],
-  intro:"35 级后解锁的高难周常模式：需先完成大漩涡任务证明资格（金级大漩涡视为达标）；浩劫许可等级 = 完成过的最高任务等级；每周计时器归零生成新任务；不会自动匹配，需自行组队；完成更高等级任务可提升等级与奖励。",
+{ t:"浩劫", en:"Havoc", cat:"mission", keep:true, src:"浩劫模式/任务/官方描述", d:"角色满级（30 级）后的高难周常模式，有专属任务订单与词条；需先完成大漩涡任务证明资格。", r:["大漩涡","词条"],
+  intro:"角色满级（30 级）后的高难周常模式：需先完成大漩涡任务证明资格（金级大漩涡视为达标）；浩劫许可等级 = 完成过的最高任务等级；每周计时器归零生成新任务；不会自动匹配，需自行组队；完成更高等级任务可提升等级与奖励。",
   children:[
     {t:"莫比亚21团", d:"区域存在被感染的莫比亚21团士兵", detail:"情报显示，这片区域存在被感染的莫比亚21团士兵。", enhanced:"\u533a\u57df\u5b58\u5728\u88ab\u611f\u67d3\u7684\u83ab\u6bd4\u4e9a21\u56e2\u58eb\u5175\u3002\u5bf9\u7b56\uff1a\u8fdc\u7a0b\u706b\u529b\u5a01\u80c1\u5927\uff0c\u4f18\u5148\u6e05\u7406\u5c04\u624b/\u70ae\u624b\uff0c\u6ce8\u610f\u611f\u67d3\u4f53\u8fd1\u8eab\u81ea\u7206\u3002"},
     {t:"蛮横敌军", d:"敌人狂暴，目睹盟友死亡后防御力增强", detail:"该区域的敌人处于狂暴状态，它们在目睹盟友死亡后防御力会增强。", enhanced:"\u654c\u4eba\u5904\u4e8e\u72c2\u66b4\u72b6\u6001\uff0c\u76ee\u7779\u76df\u53cb\u6b7b\u4ea1\u540e\u9632\u5fa1\u589e\u5f3a\u3002\u5bf9\u7b56\uff1a\u96c6\u706b\u5feb\u901f\u9010\u4e2a\u51fb\u6740\uff0c\u907f\u514d\u6dfb\u6cb9\u6218\u672f\u62d6\u957f\u6218\u6597\u3002"},
