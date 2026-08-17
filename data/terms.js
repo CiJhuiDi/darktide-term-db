@@ -129,6 +129,9 @@ const TERMS = [
     {t:"硬化皮肤", d:"受污秽邪神赐福的敌人，皮肤如盔甲般坚硬", detail:"这片区域存在一些受污秽邪神“赐福”的敌人，它们的皮肤如盔甲般坚硬。", enhanced:"受赐福的敌人皮肤如盔甲般坚硬。对策：高护甲目标，需要撕裂/破甲或弱点攻击，避免刮痧。", type:"轮换"}
   ] },
 { t:"金级", en:"Auric", cat:"mission", keep:true, src:"成就(金级大漩涡)", d:"更高难度的任务变体（金级大漩涡等），敌人更强、奖励更好。", r:["大漩涡"] },
+{ t:"浩劫许可等级", en:"Havoc Rank", cat:"mission", keep:true, src:"官方(loc_havoc_onboarding_rank/party)", d:"当前浩劫等级（许可）：等同于你完成过的最高任务等级；在高于许可等级的任务中失败会失去一次部署机会；每周计时器归零时生成新任务。", r:["浩劫","最高浩劫层数","大漩涡"] },
+{ t:"最高浩劫层数", en:"Highest Havoc Rank", cat:"mission", keep:true, src:"官方(本周完成的最高任务等级)/源码(rank_all_time/rank_cadence/rank_week/highest_rank)", d:"记录的最高浩劫完成层数（历史/单周期/本周维度）；决定每周奖励补给包等级，并对应浩劫许可等级。", r:["浩劫","浩劫许可等级"] },
+
 { t:"词条", en:"Circumstance / Mission Modifier", cat:"mission", keep:true, src:"官方术语表(loc_glossary_term_circumstance_hazard:特殊条件)", d:"任务附加的特殊条件组合，如供电中断/瘟疫毒气/通风净化/狩猎场/突击部队挑战等；浩劫与大漩涡任务常带多个词条。", r:["大漩涡","浩劫","供电中断","瘟疫毒气","通风净化","狩猎场","突击部队挑战","高强度"] },
 { t:"供电中断", en:"Darkness", cat:"mission", keep:true, src:"词条(供电中断)", d:"任务期间供电中断，视野受限，敌人更难被发现。", r:["词条"] },
 { t:"瘟疫毒气", en:"Toxic Gas", cat:"mission", keep:true, src:"词条(瘟疫毒气)", d:"任务区域弥漫毒气，持续扣血，需留意净化点或防毒手段。", r:["词条"] },
