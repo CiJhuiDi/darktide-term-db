@@ -64,6 +64,12 @@
   .badge.cat { background: #30363d; color: #c9d1d9; border: 1px solid #484f58; }
   .detail .d-desc { margin-top: 16px; font-size: 15px; line-height: 1.7; color: #d0d7de; }
   .detail .d-source { margin-top: 10px; font-size: 12px; color: #6e7681; }
+  .detail .d-combos { margin-top: 20px; }
+  .detail .d-combos h3 { font-size: 13px; color: #8b949e; margin-bottom: 8px; letter-spacing: 1px; }
+  .detail .d-combos table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .detail .d-combos td { padding: 6px 10px; border-bottom: 1px solid #21262d; }
+  .detail .d-combos td:first-child { color: #f0c75e; font-weight: 600; white-space: nowrap; width: 140px; }
+  .detail .d-combos tr:hover td { background: #1c2129; }
   .detail .d-related { margin-top: 20px; }
   .detail .d-related h3 { font-size: 13px; color: #8b949e; margin-bottom: 8px; letter-spacing: 1px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -185,6 +191,10 @@ function renderDetail() {
     </div>
     <div class="d-desc">${x.d}</div>
     <div class="d-source">📄 游戏内出处：${x.src}</div>
+    ${x.combos ? `<div class="d-combos">
+      <h3>📋 固定词条组合</h3>
+      <table>${x.combos.map(c => `<tr><td>${c.t}</td><td>${c.d}</td></tr>`).join("")}</table>
+    </div>` : ""}
     <div class="d-related">
       <h3>⚡ 关联术语</h3>
       <div class="chips">${chips || '<span style="color:#6e7681;font-size:13px">暂无关联</span>'}</div>
