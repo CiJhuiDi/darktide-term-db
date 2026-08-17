@@ -192,7 +192,7 @@ function renderDetail() {
     <div class="d-desc">${x.d}</div>
     <div class="d-source">📄 游戏内出处：${x.src}</div>
     ${x.combos ? `<div class="d-combos">
-      <h3>📋 固定词条组合</h3>
+      <h3>📋 ${x.combosLabel || "固定词条组合"}</h3>
       <table>${x.combos.map(c => `<tr><td>${c.t}</td><td>${c.d}</td></tr>`).join("")}</table>
     </div>` : ""}
     <div class="d-related">
