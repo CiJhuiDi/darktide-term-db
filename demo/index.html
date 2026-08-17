@@ -32,6 +32,18 @@
   .tab:hover { color: #e6edf3; }
   .tab.active { background: #21262d; color: #f0c75e; font-weight: 600; }
   .tab .cnt { color: #6e7681; font-size: 11px; margin-left: 4px; }
+  .legend {
+    display: flex; gap: 14px; flex-wrap: wrap; padding: 8px 20px 0;
+    font-size: 12px; color: #8b949e; align-items: center;
+  }
+  .legend span { display: flex; align-items: center; gap: 5px; }
+  .legend i.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .legend i.dot.keep { background: #3fb950; }
+  .legend i.dot.pending { background: #d29922; }
+  .legend i.wip {
+    font-style: normal; color: #d29922; border: 1px solid #d2992266;
+    border-radius: 10px; padding: 0 6px; font-size: 11px;
+  }
   .main { display: flex; gap: 0; padding: 12px 20px 24px; min-height: calc(100vh - 120px); }
   .list {
     width: 320px; flex-shrink: 0; border: 1px solid #30363d; border-radius: 10px;
@@ -104,6 +116,14 @@
   </div>
 </div>
 <div class="tabs" id="tabs"></div>
+<div class="legend">
+  <span><i class="dot keep"></i>建议收录</span>
+  <span><i class="dot pending"></i>待定</span>
+  <span><i class="wip">⚠️ WIP</i>未实装</span>
+  <span>📌 固定词条（必出）</span>
+  <span>🎲 轮换词条（随机抽 2）</span>
+  <span>🌍 环境词条（小概率）</span>
+</div>
 <div class="main">
   <div class="list" id="list"></div>
   <div class="detail" id="detail"></div>
