@@ -84,6 +84,19 @@ const TERMS = [
     {t:"盾卫", d:"盾卫(欧格林)", detail:"官方 breed: chaos_ogryn_bulwark", enhanced:"巨盾正面无敌，绕侧或等盾牌动作间隙输出。（待校对）"},
     {t:"收割者", d:"收割者(欧格林)", detail:"官方 breed: chaos_ogryn_gunner", enhanced:"欧格林重机枪手，火力凶猛，需要集火快速解决。（待校对）"},
     {t:"粉碎者", d:"粉碎者(欧格林)", detail:"官方 breed: chaos_ogryn_executor", enhanced:"欧格林重击手，近战威胁大，注意闪避其重击。（待校对）"}
+  ] },{ t:"杂兵", en:"Horde (Chaff)", cat:"damage", keep:true, src:"官方 breed(breed_display_name_*)", d:"基础敌人，成群出现组成潮群；个体弱但数量多，清潮武器高效。", r:["精英","专家","怪物","清潮伤害"],
+  children:[
+    {t:"瘟疫行者", d:"纳垢感染体基础杂兵", detail:"官方 breed: chaos_poxwalker", enhanced:"潮群主力，成群出现；清潮武器高效，注意被围。（待校对）"},
+    {t:"变异瘟疫行者", d:"变异瘟疫行者", detail:"官方 breed: chaos_lesser_mutated_poxwalker", enhanced:"轻微变异，比普通行者略强。（待校对）"},
+    {t:"触手瘟疫行者", d:"触手瘟疫行者", detail:"官方 breed: chaos_mutated_poxwalker", enhanced:"长出触手，近战变体，注意攻击距离。（待校对）"},
+    {t:"呻吟者", d:"新感染者(呻吟者)", detail:"官方 breed: chaos_newly_infected", enhanced:"刚被感染的人类，行动迟缓。（待校对）"},
+    {t:"渣滓格斗兵", d:"渣滓近战格斗兵", detail:"官方 breed: cultist_melee", enhanced:"邪教徒近战兵，比行者有组织。（待校对）"},
+    {t:"渣滓潜行者", d:"渣滓潜行者", detail:"官方 breed: cultist_assault", enhanced:"快速突进型，注意背后。（待校对）"},
+    {t:"渣滓先锋", d:"渣滓先锋", detail:"官方 breed: cultist_vanguard", enhanced:"先锋突袭单位。（待校对）"},
+    {t:"血痂格斗兵", d:"血痂近战格斗兵", detail:"官方 breed: renegade_melee", enhanced:"叛军近战兵，配合枪手推进。（待校对）"},
+    {t:"血痂潜行者", d:"血痂潜行者", detail:"官方 breed: renegade_assault", enhanced:"快速突进型，注意近身。（待校对）"},
+    {t:"疤痂先锋", d:"疤痂先锋", detail:"官方 breed: renegade_vanguard", enhanced:"先锋突袭单位。（待校对）"},
+    {t:"血痂射手", d:"血痂射手(步枪兵)", detail:"官方 breed: renegade_rifleman", enhanced:"远程步枪兵，掩体对射目标。（待校对）"}
   ] },
 { t:"专家", en:"Specialist", cat:"damage", keep:true, src:"敌人分级(对专家伤害)", d:"带特殊能力的敌人(如喷火兵/狙击手),需优先处理。", r:["精英","怪物"],
   children:[
