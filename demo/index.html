@@ -128,7 +128,7 @@
 <div class="footer">数据:官方文本 + ENLocalizationFIX + 源码三源校准 · 大漩涡/浩劫词条可展开 · 待定稿</div>
 
 <script>
-// 数据由 data/terms.js 构建生成(build_demo.py)
+// 数据由 data/terms.js + data/move_descs.js 构建生成(build_demo.py)
 const TERMS = [
 { t:"暴击", en:"Critical", cat:"damage", keep:true, src:"近战/远程暴击几率、对狂人的暴击伤害", d:"攻击按几率造成额外伤害；伤害量受暴击伤害加成。", r:["暴击几率","暴击伤害","弱点伤害"] },
 { t:"暴击几率", en:"Critical Chance", cat:"damage", keep:true, src:"武器属性(近战/远程)", d:"触发暴击的概率。", r:["暴击","暴击伤害"] },
@@ -318,6 +318,63 @@ const TERMS = [
 { t:"突击部队挑战", en:"Waves of Specials", cat:"mission", keep:true, src:"词条(突击部队挑战)", d:"特殊敌人（专家）以波次形式来袭。", r:["词条"] },
 { t:"高强度", en:"Increased Resistance", cat:"mission", keep:true, src:"词条(高强度挑战)", d:"敌人更强/更多的高难词条（高强度挑战、高强度交战区等）。", r:["词条"] },
 ];
+
+const MOVE_DESC = {
+  // ===== 远程 =====
+  "射击": "远程射击",
+  "地狱枪射击": "地狱枪远程点射",
+  "地狱枪扫射": "地狱枪扫射压制",
+  "爆弹手枪射击": "爆弹手枪远程射击",
+  "等离子手枪射击": "等离子手枪远程射击",
+  "等离子手枪齐射": "等离子手枪蓄力齐射",
+  "霰弹枪射击": "霰弹枪近距离射击",
+  "扫射": "压制性扫射",
+  "射网": "射出束缚网(最远14米),命中玩家被网住并拖拽",
+  // ===== 近战 =====
+  "近战攻击": "近战挥击",
+  "近战推击": "近战推击",
+  "动力剑横扫": "动力剑大范围横扫",
+  "动力剑移动横扫": "移动中横扫",
+  "动力剑连击": "动力剑连段斩击",
+  "动力剑攻击": "动力剑挥击",
+  "动力剑移动攻击": "移动中挥击",
+  "动力锤攻击": "动力锤挥击",
+  "动力锤劈裂": "动力锤劈砍",
+  "动力锤移动劈裂": "移动中劈砍",
+  "动力锤砸地": "重砸地面",
+  "动力锤锤柄击": "锤柄近身敲击",
+  "刺刀攻击": "刺刀戳刺",
+  "踢击": "近身踢击",
+  "拳击": "近身拳击",
+  "连击": "连续攻击",
+  "冲锋": "加速冲锋接近玩家",
+  "冲刺": "快速冲刺位移",
+  "快速冲刺": "高速冲刺",
+  "随机冲刺": "随机方向冲刺",
+  "短距冲刺": "短距离冲刺",
+  "扑击": "扑向目标",
+  "爪击": "利爪挥击",
+  "猛击": "强力砸击",
+  "瘟疫践踏": "附带瘟疫之力的践踏",
+  "呕吐": "喷吐腐蚀物",
+  // ===== 亚空间系(源码确认) =====
+  "亚空间传送": "瞬移到仇恨目标面前",
+  "亚空间抓取": "引导后抓住玩家执行处决(约5秒演出,3米内触发),被抓基本必死,队友需打断",
+  "亚空间横扫": "身边≥2名玩家时触发的大范围横扫,高伤害+8米范围压制",
+  // ===== 特殊 =====
+  "快速投掷手雷": "快速掷出破片手雷",
+  "多重投掷手雷": "连续掷出多枚手雷",
+  "强化多重投掷": "连续掷出5枚手雷(源码 throw_grenade_five)",
+  "投掷手雷": "掷出手雷",
+  "投掷火焰手雷": "掷出火焰手雷",
+  "投掷破片手雷": "掷出破片手雷",
+  "虚空盾爆炸": "虚空盾破碎时的范围爆炸(半径5米,带击退)",
+  "使用兴奋剂": "给自己注射兴奋剂强化",
+  "召唤": "召唤增援单位",
+  "自爆": "自身引爆",
+  "护盾重充能": "盾被击破后重新充能(回满约12~20秒,随难度变化)",
+  "换弹": "更换弹药",
+};
 </script>
 <script>
 // ============ 分类 ============
@@ -466,10 +523,10 @@ function renderDetail() {
       <div class="d-source" style="margin-top:18px">🛡️ 部位护甲（反编译源码）</div>
       <div class="d-intro" style="font-size:13px">${typeof x.armor === "string" ? x.armor : x.armor.map(a => `<div style="margin:4px 0"><span style="color:#f0c75e;font-weight:600">${a.breed}：</span>${a.text}</div>`).join("")}</div>` : ""}
       ${x.moves ? `
-      <div class="d-source" style="margin-top:18px">🎯 招式（行为树源码）</div>
+      <div class="d-source" style="margin-top:18px">🎯 招式（行为树源码）<span style="color:#666;font-size:11px;margin-left:6px">悬停招式名查看说明</span></div>
       <div class="d-intro" style="font-size:13px">${typeof x.moves === "string" ? x.moves : x.moves.map(g => g.breed
-        ? `<div style="margin:4px 0"><span style="color:#f0c75e;font-weight:600">${g.breed}：</span>${g.list.join("、")}</div>`
-        : `<div style="margin:4px 0"><span style="color:#58a6ff;font-weight:600">${g.g}：</span>${g.list.join("、")}</div>`).join("")}</div>` : ""}
+        ? `<div style="margin:4px 0"><span style="color:#f0c75e;font-weight:600">${g.breed}：</span>${g.list.map(n => `<span title="${MOVE_DESC[n] || '暂无说明'}" style="cursor:help;border-bottom:1px dashed #666">${n}</span>`).join("、")}</div>`
+        : `<div style="margin:4px 0"><span style="color:#58a6ff;font-weight:600">${g.g}：</span>${g.list.map(n => `<span title="${MOVE_DESC[n] || '暂无说明'}" style="cursor:help;border-bottom:1px dashed #666">${n}</span>`).join("、")}</div>`).join("")}</div>` : ""}
       <div class="d-related">
         <h3>⬆ 返回</h3>
         <div class="chips"><span class="chip" onclick="selectTerm('${x.parent}')">${x.parent}（模式介绍）</span></div>
