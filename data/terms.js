@@ -66,7 +66,9 @@ const TERMS = [
 
 { t:"异常状态", en:"Ailment", cat:"damage", keep:true, src:"祝福/天赋(碎颅/雷击/魂火/流血等)", d:"施加在敌人身上的持续效果总称,按效果分多种(碎颅/雷击/魂火/流血/燃烧/电击等)。", r:["流血","燃烧","电击","中毒"] },
 { t:"持续伤害", en:"Damage over Time (DoT)", cat:"damage", keep:true, src:"祝福/天赋描述", d:"随时间造成伤害的效果总称,与直击伤害相对;燃烧/流血/魂火/电击均属 DoT。", r:["异常状态","流血","燃烧","电击"] },
-{ t:"娴熟", en:"Finesse", cat:"damage", keep:true, src:"武器属性(暴击与弱点伤害)", d:"同时加成暴击与弱点伤害的属性,近战/灵能武器常见。", r:["暴击","弱点伤害"] },
+{ t:"灵巧", en:"Finesse", cat:"damage", keep:true, src:"天赋(近战灵巧加成/闪避后灵巧伤害)", d:"天赋系的暴击与弱点伤害加成属性（官方译名「灵巧」）；与武器面板的「武器娴熟」同为 finesse 的不同译名/语境。", r:["灵巧伤害","暴击","弱点伤害","武器娴熟"] },
+{ t:"灵巧伤害", en:"Finesse Damage", cat:"damage", keep:true, src:"天赋(闪避后灵巧伤害提升/潜行提供灵巧伤害)", d:"天赋触发的伤害加成项（如决斗者闪避后、潜行时），作用于暴击与弱点伤害。", r:["灵巧","暴击","弱点伤害"] },
+{ t:"武器娴熟", en:"Weapon Finesse (Stat)", cat:"gear", keep:true, src:"武器属性面板(loc_stats_display_finesse_stat / finesse_power)", d:"武器属性面板的 stat，显示为「暴击与弱点伤害」（finesse power）；与天赋系的「灵巧」为同一 finesse 属性的不同译名。", r:["灵巧","暴击","弱点伤害"] },
 { t:"能量", en:"Power Level", cat:"damage", keep:true, src:"天赋(能量叠加)", d:"全局伤害加成层数,击杀或热量叠层,按百分比提升最终伤害。", r:["暴击","弱点伤害"] },
 { t:"热量", en:"Overheat", cat:"action", keep:true, src:"灵能者武器(热量机制)", d:"灵能者武器充能资源,热量越高伤害越高;满热量进入过热状态(可能自爆)。", r:["能量","爆炸"] },
 { t:"挡反", en:"Parry", cat:"action", keep:true, src:"武器机制(恶魔爪/刺剑)", d:"特定武器格挡瞬间的反击,可弹开攻击并反击。", r:["格挡","重击"] },
