@@ -73,8 +73,30 @@ const TERMS = [
 { t:"能量", en:"Power Level", cat:"damage", keep:true, src:"天赋/ENLocalizationFIX", d:"全局伤害加成层数：近战/远程/技能/dot/爆炸全伤害增幅，击杀或热量叠层。", r:["暴击","弱点伤害"] },
 { t:"热量", en:"Overheat", cat:"action", keep:true, src:"灵能者武器(热量机制)", d:"灵能者武器充能资源,热量越高伤害越高;满热量进入过热状态(可能自爆)。", r:["能量","爆炸"] },
 { t:"挡反", en:"Parry", cat:"action", keep:true, src:"武器机制(恶魔爪/刺剑)", d:"特定武器格挡瞬间的反击,可弹开攻击并反击。", r:["格挡","重击"] },
-{ t:"精英", en:"Elite", cat:"damage", keep:true, src:"敌人分级(对精英伤害)", d:"精英敌人(如霰弹枪手),血量/威胁高于杂兵;有专门的伤害加成词条。", r:["专家","怪物","弱点"] },
-{ t:"专家", en:"Specialist", cat:"damage", keep:true, src:"敌人分级(对专家伤害)", d:"带特殊能力的敌人(如喷火兵/狙击手),需优先处理。", r:["精英","怪物"] },
+{ t:"精英", en:"Elite", cat:"damage", keep:true, src:"敌人分级(对精英伤害)", d:"精英敌人(如霰弹枪手),血量/威胁高于杂兵;有专门的伤害加成词条。", r:["专家","怪物","弱点"],
+  children:[
+    {t:"霰弹枪手", d:"血痂/渣滓霰弹枪手", detail:"官方 breed: renegade_shocktrooper 血痂霰弹枪手 / cultist_shocktrooper 渣滓霰弹枪手", enhanced:"近距离高爆发，贴脸喷子威胁大，优先远程处理或保持距离。（待校对）"},
+    {t:"炮手", d:"血痂/渣滓炮手", detail:"官方 breed: renegade_gunner 血痂炮手 / cultist_gunner 渣滓炮手", enhanced:"持续火力压制，会压得你抬不起头；利用掩体接近或绕侧击杀。（待校对）"},
+    {t:"无线电操作员", d:"血痂无线电操作员", detail:"官方 breed: renegade_radio_operator（英文未翻译）", enhanced:"呼叫增援/干扰，优先击杀避免被拖入消耗战。（待校对）"},
+    {t:"等离子炮手", d:"血痂等离子炮手", detail:"官方 breed: renegade_plasma_gunner", enhanced:"等离子武器高伤，命中即大残；优先处理，别让它站桩输出。（待校对）"},
+    {t:"狂暴者", d:"血痂/渣滓狂暴者", detail:"官方 breed: renegade_berzerker 血痂狂暴者 / cultist_berzerker 渣滓狂暴者", enhanced:"近战狂徒，攻速快伤害高，多用推搡打断或集火秒杀。（待校对）"},
+    {t:"重锤兵", d:"血痂重锤兵", detail:"官方 breed: renegade_executor", enhanced:"重锤砸地范围大，注意躲避前摇；打断或拉开距离。（待校对）"},
+    {t:"盾卫", d:"盾卫(欧格林)", detail:"官方 breed: chaos_ogryn_bulwark", enhanced:"巨盾正面无敌，绕侧或等盾牌动作间隙输出。（待校对）"},
+    {t:"收割者", d:"收割者(欧格林)", detail:"官方 breed: chaos_ogryn_gunner", enhanced:"欧格林重机枪手，火力凶猛，需要集火快速解决。（待校对）"},
+    {t:"粉碎者", d:"粉碎者(欧格林)", detail:"官方 breed: chaos_ogryn_executor", enhanced:"欧格林重击手，近战威胁大，注意闪避其重击。（待校对）"}
+  ] },
+{ t:"专家", en:"Specialist", cat:"damage", keep:true, src:"敌人分级(对专家伤害)", d:"带特殊能力的敌人(如喷火兵/狙击手),需优先处理。", r:["精英","怪物"],
+  children:[
+    {t:"火焰兵", d:"血痂火焰兵/渣滓剧毒火焰兵", detail:"官方 breed: renegade_flamer 血痂火焰兵 / cultist_flamer 渣滓剧毒火焰兵", enhanced:"火焰喷射近身伤害高，保持距离优先远程击杀。（待校对）"},
+    {t:"轰炸者", d:"血痂轰炸者", detail:"官方 breed: renegade_grenadier", enhanced:"投掷手雷轰炸，注意爆炸预警，拉开距离或提前处理。（待校对）"},
+    {t:"剧毒轰炸者", d:"渣滓剧毒轰炸者", detail:"官方 breed: cultist_grenadier", enhanced:"投掷剧毒弹，毒区持续伤害，注意走位避开。（待校对）"},
+    {t:"狙击手", d:"血痂狙击手", detail:"官方 breed: renegade_sniper", enhanced:"远程点名，瞄准线可见，第一时间躲掩体并反制。（待校对）"},
+    {t:"陷阱手", d:"血痂陷阱手", detail:"官方 breed: renegade_netgunner", enhanced:"网枪命中会被困住，优先击杀或保持移动。（待校对）"},
+    {t:"瘟疫猎犬", d:"瘟疫猎犬", detail:"官方 breed: chaos_hound", enhanced:"扑倒压制，被扑需队友解救；听到叫声提前防备。（待校对）"},
+    {t:"装甲瘟疫猎犬", d:"装甲瘟疫猎犬", detail:"官方 breed: chaos_armored_hound", enhanced:"装甲版猎犬，更硬更难处理，集火优先。（待校对）"},
+    {t:"瘟疫爆破手", d:"瘟疫爆破手(携带炸弹)", detail:"官方 breed: chaos_poxwalker_bomber；注意与自爆怪「瘟疫爆者」不同", enhanced:"携带炸弹的行走尸，接近自爆范围大；远程击杀最稳。（待校对）"},
+    {t:"变种人", d:"变种人(渣滓)", detail:"官方 breed: cultist_mutant", enhanced:"高速冲锋抓人，被抓会甩飞；听到吼声准备闪避或打断。（待校对）"}
+  ] },
 { t:"怪物", en:"Monster", cat:"damage", keep:true, src:"敌人分级(对怪物伤害)", d:"大型头目(纳垢兽/混沌卵等),高血量高威胁,需要集火。", r:["精英","专家"] },
 { t:"Boss", en:"Boss", cat:"damage", keep:true, src:"官方名称(breed_display_name_*)/用户确认", d:"游戏中的首领级敌人，分为人形（叛徒连长/邪教勇士/中尉）与怪物（纳垢兽/混沌魔物/恶魔宿主）。", r:["怪物","精英","专家"],
   children:[
