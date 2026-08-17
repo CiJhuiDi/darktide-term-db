@@ -22,8 +22,8 @@ old_ext = '<script src="../data/terms.js"></script>'
 if old_ext in html:
     html = html.replace(old_ext, '<script>\n' + terms_block + '\n</script>')
 else:
-    # 幂等:找到数据 script 块并替换
-    m2 = re.search(r'<script>\n(const TERMS = \[.*?\];)\n</script>', html, re.S)
+    # 幂等:找到内嵌数据 script 块并替换(允许前有注释行)
+    m2 = re.search(r'<script>\n(?://[^\n]*\n)?(const TERMS = \[.*?\];)\n</script>', html, re.S)
     if m2:
         html = html.replace(m2.group(0), '<script>\n' + terms_block + '\n</script>')
     else:
