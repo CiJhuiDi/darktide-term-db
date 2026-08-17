@@ -105,9 +105,13 @@
     .list { width: 100%; max-height: 260px; }
     .detail { margin-left: 0; margin-top: 12px; }
   }
+  #tip { position: fixed; z-index: 9999; display: none; max-width: 320px; padding: 6px 10px;
+    background: #161b22; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9;
+    font-size: 12px; line-height: 1.5; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,.5); }
 </style>
 </head>
 <body>
+<div id="tip"></div>
 <div class="header">
   <h1>🜲 暗潮术语库</h1>
   <span class="sub">机制名词 · 作用 · 关系 · Demo</span>
@@ -525,8 +529,8 @@ function renderDetail() {
       ${x.moves ? `
       <div class="d-source" style="margin-top:18px">🎯 招式（行为树源码）<span style="color:#666;font-size:11px;margin-left:6px">悬停招式名查看说明</span></div>
       <div class="d-intro" style="font-size:13px">${typeof x.moves === "string" ? x.moves : x.moves.map(g => g.breed
-        ? `<div style="margin:4px 0"><span style="color:#f0c75e;font-weight:600">${g.breed}：</span>${g.list.map(n => `<span title="${MOVE_DESC[n] || '暂无说明'}" style="cursor:help;border-bottom:1px dashed #666">${n}</span>`).join("、")}</div>`
-        : `<div style="margin:4px 0"><span style="color:#58a6ff;font-weight:600">${g.g}：</span>${g.list.map(n => `<span title="${MOVE_DESC[n] || '暂无说明'}" style="cursor:help;border-bottom:1px dashed #666">${n}</span>`).join("、")}</div>`).join("")}</div>` : ""}
+        ? `<div style="margin:4px 0"><span style="color:#f0c75e;font-weight:600">${g.breed}：</span>${g.list.map(n => `<span data-tip="${MOVE_DESC[n] || '暂无说明'}" style="cursor:help;border-bottom:1px dashed #666">${n}</span>`).join("、")}</div>`
+        : `<div style="margin:4px 0"><span style="color:#58a6ff;font-weight:600">${g.g}：</span>${g.list.map(n => `<span data-tip="${MOVE_DESC[n] || '暂无说明'}" style="cursor:help;border-bottom:1px dashed #666">${n}</span>`).join("、")}</div>`).join("")}</div>` : ""}
       <div class="d-related">
         <h3>⬆ 返回</h3>
         <div class="chips"><span class="chip" onclick="selectTerm('${x.parent}')">${x.parent}（模式介绍）</span></div>
@@ -615,6 +619,35 @@ document.getElementById("q").addEventListener("input", e => {
   renderList();
   renderDetail();
 });
+
+// ============ 招式悬停提示(立即显示,无延迟) ============
+(() => {
+  const tip = document.getElementById("tip");
+  let timer = null;
+  document.addEventListener("mouseover", e => {
+    const t = e.target.closest("[data-tip]");
+    if (!t) { hide(); return; }
+    tip.textContent = t.dataset.tip;
+    tip.style.display = "block";
+    move(e);
+    if (timer) { clearTimeout(timer); timer = null; }
+  });
+  document.addEventListener("mousemove", e => { if (tip.style.display === "block") move(e); });
+  document.addEventListener("mouseout", e => {
+    const t = e.target.closest("[data-tip]");
+    if (t && !t.contains(e.relatedTarget)) hide();
+  });
+  function move(e) {
+    const pad = 12;
+    let x = e.clientX + pad, y = e.clientY + pad;
+    const r = tip.getBoundingClientRect();
+    if (x + r.width > innerWidth - 8) x = e.clientX - r.width - pad;
+    if (y + r.height > innerHeight - 8) y = e.clientY - r.height - pad;
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+  }
+  function hide() { tip.style.display = "none"; }
+})();
 
 // ============ 初始化 ============
 renderTabs();
