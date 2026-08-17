@@ -50,7 +50,7 @@ term_db/
 2. **官方术语表**：`loc_glossary_*`（22 条：护甲类型/被动/能力/楔石/光环/闪击等）——官方基准层（未全收，待办）
 3. **反编译源码**：`暗潮\02-游戏源码\Darktide-Source-Code`——机制验证（如 rending/void shield）
 4. **ENLocalizationFIX 系列（描述校准主力）**：游戏 mods 目录的 Blessings/Curios/Talents/Traits 中文描述重写，实测级细节。
-   已归档：`暗潮\99-临时文件\enloc_fix_ref\`（含 `术语提取_参考.md` 66 词频 + `机制描述_精华.md` 关键机制完整描述）
+   已归档到项目内：`references\enloc_fix_ref\`（含 `术语提取_参考.md` 66 词频 + `机制描述_精华.md` 关键机制完整描述）
 5. 人工：用户逐条定稿
 
 ## 五、关键勘误与机制事实（铁证，防再错）

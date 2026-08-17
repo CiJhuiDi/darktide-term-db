@@ -14,10 +14,11 @@
 
 ## 数据来源
 
-- **官方中文完整文本**:`darktide_zh_loc.json`(LocalizationExport 导出,139724 键)——提取术语官方译名与出处
-- **官方术语表**:`loc_glossary_*`(22 条:护甲类型/被动/能力/楔石/光环/闪击等)——官方基准层
-- **游戏反编译源码**:`Darktide-Source-Code`——机制验证(如 rending=撕裂/破甲、brittleness=脆弱/每层2.5%增伤)
-- **人工校对**:用户逐条定稿(去留/描述/关联)
+- **官方中文完整文本**：`暗潮\03-技能树\数据\darktide_zh_loc.json`（LocalizationExport 导出，139724 键）——提取术语官方译名与出处
+- **官方术语表**：`loc_glossary_*`（22 条：护甲类型/被动/能力/楔石/光环/闪击等）——官方基准层
+- **游戏反编译源码**：`暗潮\02-游戏源码\Darktide-Source-Code`——机制验证（如 rending=撕裂/破甲、brittleness=脆弱/每层2.5%增伤）
+- **ENLocalizationFIX 系列**：游戏 mods 目录（Blessings/Curios/Talents/Traits），中文描述重写实测级细节；已归档 `references\enloc_fix_ref\`（含术语提取_参考 + 机制描述_精华）
+- **人工校对**：用户逐条定稿（去留/描述/关联）
 
 ## 目录结构
 
