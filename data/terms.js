@@ -63,4 +63,14 @@ const TERMS = [
 { t:"弹匣", en:"Magazine", cat:"gear", keep:true, src:"契约/语音", d:"单次装填容量。", r:["备弹","换弹"] },
 { t:"备弹", en:"Reserve Ammo", cat:"gear", keep:true, src:"武器属性", d:"弹匣外的弹药池。", r:["弹匣","换弹"] },
 { t:"武器属性", en:"Weapon Stats", cat:"gear", keep:false, src:"武器详情", d:"武器的各项数值面板。", r:["精准度","稳定性","弹匣","备弹"] },
+
+{ t:"异常状态", en:"Ailment", cat:"damage", keep:true, src:"祝福/天赋(碎颅/雷击/魂火/流血等)", d:"施加在敌人身上的持续效果总称,按效果分多种(碎颅/雷击/魂火/流血/燃烧/电击等)。", r:["流血","燃烧","电击","中毒"] },
+{ t:"持续伤害", en:"Damage over Time (DoT)", cat:"damage", keep:true, src:"祝福/天赋描述", d:"随时间造成伤害的效果总称,与直击伤害相对;燃烧/流血/魂火/电击均属 DoT。", r:["异常状态","流血","燃烧","电击"] },
+{ t:"娴熟", en:"Finesse", cat:"damage", keep:true, src:"武器属性(暴击与弱点伤害)", d:"同时加成暴击与弱点伤害的属性,近战/灵能武器常见。", r:["暴击","弱点伤害"] },
+{ t:"能量", en:"Power Level", cat:"damage", keep:true, src:"天赋(能量叠加)", d:"全局伤害加成层数,击杀或热量叠层,按百分比提升最终伤害。", r:["暴击","弱点伤害"] },
+{ t:"热量", en:"Overheat", cat:"action", keep:true, src:"灵能者武器(热量机制)", d:"灵能者武器充能资源,热量越高伤害越高;满热量进入过热状态(可能自爆)。", r:["能量","爆炸"] },
+{ t:"挡反", en:"Parry", cat:"action", keep:true, src:"武器机制(恶魔爪/刺剑)", d:"特定武器格挡瞬间的反击,可弹开攻击并反击。", r:["格挡","重击"] },
+{ t:"精英", en:"Elite", cat:"damage", keep:true, src:"敌人分级(对精英伤害)", d:"精英敌人(如霰弹枪手),血量/威胁高于杂兵;有专门的伤害加成词条。", r:["专家","怪物","弱点"] },
+{ t:"专家", en:"Specialist", cat:"damage", keep:true, src:"敌人分级(对专家伤害)", d:"带特殊能力的敌人(如喷火兵/狙击手),需优先处理。", r:["精英","怪物"] },
+{ t:"怪物", en:"Monster", cat:"damage", keep:true, src:"敌人分级(对怪物伤害)", d:"大型头目(纳垢兽/混沌卵等),高血量高威胁,需要集火。", r:["精英","专家"] },
 ];
