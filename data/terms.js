@@ -76,4 +76,16 @@ const TERMS = [
 { t:"精英", en:"Elite", cat:"damage", keep:true, src:"敌人分级(对精英伤害)", d:"精英敌人(如霰弹枪手),血量/威胁高于杂兵;有专门的伤害加成词条。", r:["专家","怪物","弱点"] },
 { t:"专家", en:"Specialist", cat:"damage", keep:true, src:"敌人分级(对专家伤害)", d:"带特殊能力的敌人(如喷火兵/狙击手),需优先处理。", r:["精英","怪物"] },
 { t:"怪物", en:"Monster", cat:"damage", keep:true, src:"敌人分级(对怪物伤害)", d:"大型头目(纳垢兽/混沌卵等),高血量高威胁,需要集火。", r:["精英","专家"] },
+
+{ t:"任务类型", en:"Mission Types", cat:"mission", keep:true, src:"任务终端(loc_mission_type_*)", d:"任务目标类型：突袭/暗杀/调查/破坏/打击/谍报/修理/行动。", r:[] },
+{ t:"大漩涡", en:"Maelstrom", cat:"mission", keep:true, src:"任务终端(大漩涡)", d:"高难滚动任务模式，带多种词条组合（编号如 I-II、A-I-II）；金级为更高难度变体。", r:["词条","浩劫","金级"] },
+{ t:"浩劫", en:"Havoc", cat:"mission", keep:true, src:"浩劫模式/任务", d:"35 级后解锁的高难周常模式，有专属任务订单与词条；需先完成大漩涡任务证明资格。", r:["大漩涡","词条"] },
+{ t:"金级", en:"Auric", cat:"mission", keep:true, src:"成就(金级大漩涡)", d:"更高难度的任务变体（金级大漩涡等），敌人更强、奖励更好。", r:["大漩涡"] },
+{ t:"词条", en:"Circumstance / Mission Modifier", cat:"mission", keep:true, src:"官方术语表(loc_glossary_term_circumstance_hazard:特殊条件)", d:"任务附加的特殊条件组合，如供电中断/瘟疫毒气/通风净化/狩猎场/突击部队挑战等；浩劫与大漩涡任务常带多个词条。", r:["大漩涡","浩劫","供电中断","瘟疫毒气","通风净化","狩猎场","突击部队挑战","高强度"] },
+{ t:"供电中断", en:"Darkness", cat:"mission", keep:true, src:"词条(供电中断)", d:"任务期间供电中断，视野受限，敌人更难被发现。", r:["词条"] },
+{ t:"瘟疫毒气", en:"Toxic Gas", cat:"mission", keep:true, src:"词条(瘟疫毒气)", d:"任务区域弥漫毒气，持续扣血，需留意净化点或防毒手段。", r:["词条"] },
+{ t:"通风净化", en:"Ventilation Purge", cat:"mission", keep:true, src:"词条(通风净化)", d:"需要定期启动通风净化清除危险气体，期间敌人会涌出。", r:["词条"] },
+{ t:"狩猎场", en:"Hunting Grounds", cat:"mission", keep:true, src:"词条(狩猎场)", d:"精英/专家敌人显著增多。", r:["词条"] },
+{ t:"突击部队挑战", en:"Waves of Specials", cat:"mission", keep:true, src:"词条(突击部队挑战)", d:"特殊敌人（专家）以波次形式来袭。", r:["词条"] },
+{ t:"高强度", en:"Increased Resistance", cat:"mission", keep:true, src:"词条(高强度挑战)", d:"敌人更强/更多的高难词条（高强度挑战、高强度交战区等）。", r:["词条"] },
 ];
