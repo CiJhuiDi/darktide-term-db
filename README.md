@@ -50,7 +50,9 @@ term_db/
 
 ## 使用 demo
 
-直接双击打开 `demo/index.html`(数据经 `<script src>` 引入,file:// 下可用,无需服务器)。
+直接双击打开 `demo/index.html`（**自包含单文件**，数据内嵌，任何环境可用，无需服务器）。
+
+> 数据维护：只改 `data/terms.js`（数据源），然后运行 `python tools/build_demo.py` 重新生成 demo。
 
 ## 待办
 
