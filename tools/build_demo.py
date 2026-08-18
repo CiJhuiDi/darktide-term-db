@@ -8,6 +8,7 @@ sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, 'data', 'terms.js')
 DESCS = os.path.join(BASE, 'data', 'move_descs.js')
+PYMAP = os.path.join(BASE, 'data', 'pinyin_map.js')
 DEMO = os.path.join(BASE, 'demo', 'index.html')
 
 terms_js = io.open(DATA, encoding='utf-8').read()
@@ -24,15 +25,22 @@ if not md:
     sys.exit(1)
 desc_block = md.group(1)
 
+pymap_js = io.open(PYMAP, encoding='utf-8').read()
+pm = re.search(r'(const PYMAP = \{.*?\};)', pymap_js, re.S)
+if not pm:
+    print('FAIL: PYMAP not found in', PYMAP)
+    sys.exit(1)
+pymap_block = pm.group(1)
+
 html = io.open(DEMO, encoding='utf-8').read()
-# 内嵌数据 script 块(TERMS + MOVE_DESC)
-script_inline = '<script>\n' + terms_block + '\n\n' + desc_block + '\n</script>'
+# 内嵌数据 script 块(TERMS + MOVE_DESC + PYMAP)
+script_inline = '<script>\n' + terms_block + '\n\n' + desc_block + '\n\n' + pymap_block + '\n</script>'
 old_ext = '<script src="../data/terms.js"></script>'
 if old_ext in html:
     html = html.replace(old_ext, script_inline)
 else:
     # 幂等:找到内嵌数据 script 块并替换(允许前有注释行)
-    m2 = re.search(r'<script>\n(?://[^\n]*\n)?(const TERMS = \[.*?\];)(?:\n\nconst MOVE_DESC = \{.*?\};)?\n</script>', html, re.S)
+    m2 = re.search(r'<script>\n(?://[^\n]*\n)?(const TERMS = \[.*?\];)(?:\n\nconst MOVE_DESC = \{.*?\};)?(?:\n\nconst PYMAP = \{.*?\};)?\n</script>', html, re.S)
     if m2:
         html = html.replace(m2.group(0), script_inline)
     else:
@@ -40,6 +48,6 @@ else:
         sys.exit(1)
 
 # 注释标记数据生成时间
-html = html.replace('<script>\nconst TERMS', '<script>\n// 数据由 data/terms.js + data/move_descs.js 构建生成(build_demo.py)\nconst TERMS')
+html = html.replace('<script>\nconst TERMS', '<script>\n// 数据由 data/terms.js + data/move_descs.js + data/pinyin_map.js 构建生成(build_demo.py)\nconst TERMS')
 io.open(DEMO, 'w', encoding='utf-8').write(html)
-print('demo rebuilt:', DEMO, '| terms:', terms_block.count('{ t:'), '| descs:', desc_block.count(':'))
+print('demo rebuilt:', DEMO, '| terms:', terms_block.count('{ t:'), '| descs:', desc_block.count(':'), '| pymap:', pymap_block.count('py:'))
