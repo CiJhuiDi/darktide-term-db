@@ -31,7 +31,7 @@ def run_autoreply():
             os.path.join(BASE, 'demo', 'index.html'),
         ]
         attach = [a for a in attach if os.path.exists(a)]
-        uniq = mail_review.collect_signups(c, keyword='参与校对', days=3, output=None)
+        uniq = mail_review.collect_signups(c, keyword=['我想参与', '参与校对', '帮忙看看'], days=3, output=None)
         replied_file = os.path.join(REVIEWS, '.replied_emails.txt')
         replied = set()
         if os.path.exists(replied_file):
@@ -39,7 +39,7 @@ def run_autoreply():
                 replied = set(l.strip().lower() for l in f if l.strip())
         new = [u for u in uniq if u['addr'].lower() not in replied]
         for u in new:
-            mail_review.send(c, u['addr'], subject='暗潮术语库校对清单(demo+清单)', attach=attach)
+            mail_review.send(c, u['addr'], subject='暗潮术语库词条体检表(demo+清单)', attach=attach)
             replied.add(u['addr'].lower())
             with open(replied_file, 'w', encoding='utf-8') as f:
                 f.write('\n'.join(sorted(replied)))

@@ -10,6 +10,43 @@ sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REVIEWS = os.path.join(BASE, 'reviews')
 
+
+# ---- 容错分类(emoji+文字+错字) 2026-08-18 ----
+_DISPUTE_KEYS = ['⚠', '争议', '不确定', '待定', '待确认', '没把握', '难说', '存疑', '说不准', '争异', '待议']
+_MISSING_KEYS = ['➕', '缺失', '未收录', '没收录', '缺少', '漏收', '建议增加', '建议收录']
+_DISAGREE_KEYS = ['❓', '异议', '疑问', '有问', '不对', '错误', '不符', '有导', '异意', '有义', '疑异']
+_DONE_KEYS = ['✅', '已校', '完成', '校完', '校对完', 'done', 'ok', 'OK', 'Ok', '✓', '✔', '对']
+
+def classify_status(s):
+    s = (s or '').strip()
+    if not s or s in ('待校对', '待校', '未校'):
+        return None
+    for k in _MISSING_KEYS:
+        if k in s:
+            return 'missing'
+    for k in _DISPUTE_KEYS:
+        if k in s:
+            return 'dispute'
+    for k in _DISAGREE_KEYS:
+        if k in s:
+            return 'disagree'
+    for k in _DONE_KEYS:
+        if k in s:
+            return 'done'
+    return 'unknown'
+
+def classify_verify(s):
+    s = (s or '').strip()
+    if not s:
+        return None
+    if '🅰' in s or '游戏文件' in s or '文件' in s or s.strip().lower() in ('a', '游戏'):
+        return 'game'
+    if '🅱' in s or '实测' in s or '实侧' in s or s.strip().lower() in ('b', '实测'):
+        return 'test'
+    if '🅲' in s or '社区' in s or s.strip().lower() in ('c',):
+        return 'community'
+    return 'unknown'
+
 def read_csv(path):
     rows = []
     try:
@@ -37,6 +74,8 @@ def main():
         for row in read_csv(fp):
             if len(row) < 7:
                 continue
+            if '示例' in (row[0] or '') or '示例' in (row[1] or ''):
+                continue
             name = row[1]
             status = (row[6] or '').strip()
             opinion = (row[7] or '').strip()
@@ -45,7 +84,7 @@ def main():
             if not reviewer:
                 reviewer = os.path.basename(fp).replace('校对_', '').replace('.csv', '')
             # 跳过未填写的行(状态仍是默认"待校对"且无意见)
-            if status in ('待校对', '') and not opinion:
+            if classify_status(status) is None and not opinion:
                 continue
             records.append({'name': name, 'status': status, 'opinion': opinion,
                             'verify': verify, 'reviewer': reviewer, 'file': os.path.basename(fp)})
@@ -56,9 +95,9 @@ def main():
 
     # 统计
     total = len(by_name)
-    st_done = sum(1 for v in by_name.values() if any('✅' in x['status'] for x in v))
-    st_issue = sum(1 for v in by_name.values() if any('❓' in x['status'] for x in v))
-    st_conflict = sum(1 for v in by_name.values() if any('⚠️' in x['status'] or '争议' in x['status'] for x in v))
+    st_done = sum(1 for v in by_name.values() if any(classify_status(x['status']) == 'done' for x in v))
+    st_issue = sum(1 for v in by_name.values() if any(classify_status(x['status']) == 'disagree' for x in v))
+    st_conflict = sum(1 for v in by_name.values() if any(classify_status(x['status']) == 'dispute' for x in v))
     st_todo = total - st_done - st_issue - st_conflict
 
     verify_cnt = collections.Counter()

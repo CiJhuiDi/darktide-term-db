@@ -167,17 +167,17 @@ def send(cfg, to_addr, subject='暗潮术语库校对清单', attach=None, body=
         attach = [attach]
     attach = attach or []
     if body is None:
-        body = ('你好!感谢参与暗潮术语库校对。\n\n'
-                '【附件1 校对清单】174条术语, Excel/WPS 可直接打开。填写方法:\n'
+        body = ('你好！欢迎来一起完善暗潮术语库～\n\n'
+                '【附件1 词条体检表】176条术语, Excel/WPS 可直接打开。填写方法:\n'
                 '- 状态列: ✅已校对 / ❓有异议 / ⚠️争议\n'
                 '- 验证方式: 🅰️游戏文件 / 🅱️实测 / 🅲️社区\n'
                 '- 有争议的词条双方意见都保留, 我会查证定夺\n'
-                '填完后保存文件, 重命名为 **校对_你的昵称.csv**, 直接回复本邮件即可, 我会自动收取合并。\n\n'
+                '填完后保存文件(文件名保持 校对_你的昵称.csv 不变, 系统按此识别), 直接回复本邮件即可, 我会自动收取合并。\n节奏随意: 随时填、随时发, 不用赶进度——我每周日统一汇总反馈, 填几行都是贡献。\n\n'
                 '【附件2 术语库演示页 demo/index.html】\n'
-                '这是暗潮机制术语库的可视化页面(97个词条: 伤害/防御/攻击/装备/敌人/任务词条/状态), 用来预览词条效果、校对前先了解全貌。\n'
+                '这是暗潮机制术语库的可视化页面(98个词条: 伤害/防御/攻击/装备/敌人/任务词条/状态), 用来预览词条效果，开始前先了解全貌。\n'
                 '- **打开方式**: 双击文件用浏览器打开即可, 无需联网/安装(数据内嵌在文件里)\n'
                 '- **功能**: 左侧分类浏览、顶部搜索(支持中文/英文/拼音)、点击词条看详情、关联术语可点击跳转、Boss招式悬停看说明\n'
-                '- 校对时可以先浏览一遍, 对术语背景有数; 发现 demo 里的错误也可以直接写进校对表意见列\n\n'
+                '- 可以先浏览一遍熟悉术语背景；发现 demo 里的错误也可以直接写进体检表意见列\n\n'
                 '感谢贡献!——暗潮术语库项目')
     msg = MIMEMultipart()
     msg['From'] = cfg['user']
@@ -199,10 +199,12 @@ def send(cfg, to_addr, subject='暗潮术语库校对清单', attach=None, body=
     print('✅ 已发送')
 
 
-def collect_signups(cfg, keyword='参与校对', days=7, output=None):
-    """收集报名邮件: 搜索主题/正文含关键词的邮件, 提取发件人邮箱, 输出去重列表"""
+def collect_signups(cfg, keyword='我想参与', days=7, output=None):
+    """收集报名邮件: 搜索主题/正文含关键词的邮件, 提取发件人邮箱, 输出去重列表
+    keyword 支持列表(任一命中), 默认 我想参与(兼容旧词) """
     import re as _re
     output = output or os.path.join(REVIEWS, 'player_emails.txt')
+    keywords = keyword if isinstance(keyword, (list, tuple)) else [keyword]
     host, port = _imap_host_port(cfg)
     print('连接', host, '...')
     M = imaplib.IMAP4_SSL(host, port)
@@ -211,7 +213,7 @@ def collect_signups(cfg, keyword='参与校对', days=7, output=None):
     since = _date_days_ago(days)
     typ, data = M.search(None, f'(SINCE "{since}")')
     ids = data[0].split() if typ == 'OK' and data[0] else []
-    print(f'近{days}天邮件 {len(ids)} 封, 搜索关键词「{keyword}」...')
+    print(f'近{days}天邮件 {len(ids)} 封, 搜索关键词「{'/'.join(keywords)}」...')
 
     found = []
     for num in reversed(ids):
@@ -229,7 +231,7 @@ def collect_signups(cfg, keyword='参与校对', days=7, output=None):
                     except Exception:
                         pass
                     break
-            if keyword in subject or keyword in body:
+            if any(k in subject or k in body for k in keywords):
                 m = _re.search(r'[\w.+-]+@[\w-]+\.[\w.]+', from_)
                 addr = m.group(0) if m else None
                 if addr:
@@ -329,11 +331,11 @@ if __name__ == '__main__':
     p3.add_argument('--delay', type=int, default=5, help='间隔秒(默认5, 防限流)')
     p3.add_argument('--subject', default='暗潮术语库校对清单')
     p4 = sub.add_parser('signups', help='收集报名邮件→邮箱列表')
-    p4.add_argument('--keyword', default='参与校对', help='邮件主题/正文关键词(默认:参与校对)')
+    p4.add_argument('--keyword', default='我想参与,参与校对,帮忙看看', help='关键词,逗号分隔任一命中(默认:我想参与,参与校对,帮忙看看)')
     p4.add_argument('--days', type=int, default=7, help='近N天(默认7)')
     p4.add_argument('--output', help='输出邮箱列表文件(默认 reviews/player_emails.txt)')
     p5 = sub.add_parser('autoreply', help='自动回复报名邮件(发清单+demo, 按地址去重)')
-    p5.add_argument('--keyword', default='参与校对')
+    p5.add_argument('--keyword', default='我想参与,参与校对,帮忙看看')
     p5.add_argument('--days', type=int, default=7)
     p5.add_argument('--attach', action='append', help='附件(可多次: 清单+demo)')
     p5.add_argument('--dry-run', action='store_true', help='试跑(只列出将发送的, 不实际发送)')
@@ -347,6 +349,6 @@ if __name__ == '__main__':
     elif args.cmd == 'send_batch':
         send_batch(cfg, args.addrs, attach=args.attach, delay=args.delay, subject=args.subject)
     elif args.cmd == 'signups':
-        collect_signups(cfg, keyword=args.keyword, days=args.days, output=args.output)
+        collect_signups(cfg, keyword=[k.strip() for k in args.keyword.split(',') if k.strip()], days=args.days, output=args.output)
     elif args.cmd == 'autoreply':
-        autoreply(cfg, keyword=args.keyword, days=args.days, attach=args.attach, dry_run=args.dry_run)
+        autoreply(cfg, keyword=[k.strip() for k in args.keyword.split(',') if k.strip()], days=args.days, attach=args.attach, dry_run=args.dry_run)
