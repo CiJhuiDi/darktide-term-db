@@ -79,6 +79,22 @@ term_db/
 - **大漩涡代码词条对照表**（B站 opus/873666755412623361，作者署名"帝国海军POI！"，文章 cv28438067 是啥名最爱的提督呢）：词条编号实测表（Ⅰ专家波次/Ⅱ怪物专家/Ⅲ狩猎场/Ⅳ狙击手/Ⅴ血痂/Ⅶ变异人/Ⅸ炸药桶/A漆黑一片/B通风净化/D额外瘟疫爆者/E纳垢祝福/F冷却减免/G强化闪击）
 - **残忍兔子的Proko**——cv20017577 数据解包数值和伤害机制详解 | cv20100034 五维属性和伤害机制（底层数据挖掘，备查）
 - 抓取方法（B站风控备忘）：web_fetch 可过 B 站网页（opus/read 文章页）；API 需 wbi 签名（公开 key: img 7cd084941338484aae1ad9425b84077c / sub 4932caff0ff746eab6f01bf08b70ac45，MIXIN 打乱表，wts+w_rid md5）+ buvid cookie；搜索接口 search_type=article/video；nav 接口需登录态（-101）
+
+### 敌人 tags 机制判定（2026-08-18 源码查证，决定技能/天赋/祝福是否生效）
+- **核心机制**：每个 breed 有 `tags` 表（源码 breed 文件），stat_buff（damage_vs_ogryn / damage_vs_monsters / damage_vs_ogryn_and_monsters 等）按目标 breed.tags 匹配；veteran_buff_templates.lua 例：`is_ogryn = breed_tags.ogryn or breed_tags.monster or breed_tags.captain or breed_tags.cultist_captain`
+- **关键敌人 tags**：
+  - 猎群之主 = melee/minion/monster/**ogryn** → **吃重量级**(damage_vs_ogryn) | 收割者/粉碎者/盾卫 = elite+**ogryn** → 吃重量级
+  - 瘟疫欧格林 = minion/**monster**（无 ogryn！）→ 走专门 `damage_vs_chaos_plague_ogryn` 通道（重量级buff里单独stat_buff）；丁香实测该通道不生效=肥鲨BUG；另因 monster tag，**对怪物增伤对瘟疫欧格林生效**
+  - 纳垢兽/混沌魔物/恶魔宿主 = **monster** → 吃对怪物增伤；恶魔宿主另有 witch tag
+  - 瘟疫行者/变异/触手/呻吟者 = horde/melee/minion/poxwalker（杂兵判定）| 猎犬 = disabler/special（专家）| 变种人 = disabler/special
+- **etype（来源/种族维度，词条展示）≠ tags（机制判定维度）**：瘟疫行者 etype=感染（行尸）但人形尺寸(base_height 1.7/human骨架)→暴击秒杀类效果大概率生效(待实测)；"可秒杀"是杂兵属性非人型属性
+- **重量级(ogryn_ogryn_killer, buff=ogryn_better_ogryn_fighting)** = 对欧格林伤害+减伤；灵能/老兵有 damage_vs_ogryn_and_monsters（ogryn或monster双吃）
+- **秒杀判定 = Breed.human_sized()（2026-08-18 深挖）**：老兵暴击秒杀(broker_passive_melee_crit_instakill)触发链 = 近战暴击(on_crit_melee) + human_sized(breed) + 排除 enemy_type=="captain"；ogryn 闪避踉跄同用 human_sized（+排除 elite/special）；函数本体在 bundle(反编译缺)，但大部分 breed 无 body_size 字段 + 闪避踉跄对瘟疫行者生效 → 反推按 **base_height 高度**判定（分界约 2.0-2.4）
+  - 可被秒杀：感染系(瘟疫行者等 1.7)、人形士兵(1.9-2.0)、猎犬(1.5, special待实测)；不可：欧格林系(2.5+)、怪物(3.6)、Boss(免疫秒杀,恶魔宿主虽1.7但Boss)
+  - 边界待实测：变种人 2.4(用户确认人型分类, 秒杀判定待实测)
+- 词条已更新：感染系4词条补"人形尺寸可被暴击秒杀(源码确认)"、恶魔宿主补"Boss免疫秒杀"、变种人补"人型(实测)"
+- **秒杀免疫两层(2026-08-18 补充)**：触发层(broker被动: 近战暴击+human_sized+非captain)决定"会不会尝试"；**执行层 BuffUtils.instakill_with_buff 决定"能不能死"**: `is_boss or armor==super_armor(硬壳) or armor==resistant(不屈) or breed.ignore_instakill → return false 免疫`——恶魔宿主(is_boss)免疫、欧格林系(不屈装甲)免疫(体型非主因)、瘟疫行者(无甲)不免疫被秒；硬壳装甲敌人也免疫
+- **对外合规(2026-08-18 复查)**: terms.js/demo 清 5 处"源码"字样(源码确认→游戏文件确认、通风净化src、连长 table.clone/netgunner 痕迹)——对外数据**禁止"源码/代码/标识符"字样**(内部 HANDOFF 保留溯源)
 ## 五、关键勘误与机制事实（铁证，防再错）
 
 - **撕裂 = Rending** = 破甲/减护甲减伤，仅自身生效，**超 100% 收益降至 1/4**，对无甲/感染 100% 封顶
@@ -98,7 +114,15 @@ term_db/
 - **流程**：玩家发"参与校对"邮件 → 守护进程搜关键词（主题/正文）→ 按发件人**去重**（`reviews/.replied_emails.txt`）→ 自动回复（附件 = 最新校对清单 + demo，路径实时读取，更新数据后无需重启）
 - **命令**：`python tools/mail_review.py autoreply --attach 清单 --attach demo`（手动兜底，--dry-run 试跑）；`signups`（收集报名）/ `fetch --merge`（收校对表合并）/ `send_batch`（批量）
 - **日志**：`reviews/autoreply_daemon.log`；启动：`Start-Process python -ArgumentList "tools/mail_autoreply_daemon.py" -WindowStyle Hidden`
-- **注意**：① 电脑重启后需重新启动（未做开机自启）② 附件文件名固定 `校对清单_20260818.csv`，导出新清单时用同名覆盖 ③ 对方邮箱自动回复回执是正常现象（非误触发）④ 已回复 4 个报名者（toxic_potatoes/466765386/1059489474/941025602）
+- **注意**：① 已做开机自启（启动文件夹 vbs）② 附件文件名固定 `校对清单_20260818.csv`，导出新清单时用同名覆盖 ③ 对方邮箱自动回复回执是正常现象（非误触发）④ 已回复 4 个报名者（toxic_potatoes/466765386/1059489474/941025602）
+
+## 五点六、玩家提交建库统计（2026-08-18）
+
+- **工具**：`tools/record_submissions.py`（扫描 reviews/校对_<名字>.csv → 入库 `reviews/player_submissions.json`，按文件 mtime 幂等更新）+ `tools/stats_report.py`（生成 `reviews/校对统计_<日期>.md`）
+- **库结构**：players（按玩家：提交次数/累计词条/✅❓⚠️ 计数/验证方式分布/涉及词条）+ term_stats（按词条：被校对数/多人数确认/争议异议）
+- **周日流程（定稿）**：fetch --merge 收表 → record_submissions.py 入库 → stats_report.py 出报表 → 反馈玩家
+- **对外节奏**：玩家随时填随时发（守护进程即时收）；周日统一汇总反馈（我的维护节奏，非玩家 deadline）
+- **注意**：库只收玩家提交（校对_<名字>.csv），不含模板（校对清单_*.csv）
 
 ## 六、demo 使用与维护
 
@@ -106,6 +130,22 @@ term_db/
 - 改数据流程：编辑 `data/terms.js` / `data/move_descs.js` / `data/pinyin_map.js`(新增词条后跑 `python tools/_gen_pinyin.py`) → `python tools/build_demo.py` 重建 → 验证（node --check）
 - demo 功能：分类 tab(含 状态/难度档 分组)、搜索(中文/英文/**拼音全拼/首字母**)、X 清空、关联跳转(裸名索引)、招式悬停、detail 限高独立滚动
 - ⚠️ build_demo.py 正则已兼容注释行（`<script>\n// 注释\nconst TERMS...`）；改结构时保持 marker 稳定
+
+## 六点五、对外话术与报名流程（2026-08-19 定稿，用户强调"对人的话术是重点"）
+
+- **完整话术存档**：`docs/对外话术.md`（主帖/简短/极短三版 + 玩家疑问回复模板 + 自动回复正文 + 原则）
+- **核心原则**：零专业感（禁"校对"）、诚实（明说数据可能不准=需要玩家的原因）、成品先行（demo 可把玩）、零压力（随时交周日汇总）、玩家语感
+- **报名关键词**：主词"我想参与"（玩家自然表达），兼容旧词"参与校对/帮忙看看"；邮件主题或正文含即自动回复（守护进程）
+- **词条演进**：参与校对(吓退) → 帮忙看看(玩家不这么说) → 我想参与(玩家第一反应) ✅
+- 对外材料禁止"源码/反编译/标识符"字样（"校对"只留内部文件名/工具名）
+
+## 六点六、term_db_mod 游戏内 mod（ImguiPatch 图形化，2026-08-19）
+
+- **位置**：`暗潮-Mods	erm_db_mod`（开发目录）；游戏 mods 下是 **Junction**（cmd mklink /J 建的，改代码实时同步，**每次改完必须重启游戏**）
+- **功能**：/term ui 打开面板（搜索/分类/列表/详情折行）；F8 keybind（default_value={"f8"}）；/term list 聊天列出
+- **ImguiPatch 经验（防再踩）**：open_imgui/close_imgui 开关时各一次；update 只 begin_window/end_window；无 new_line/begin_child/text_wrapped/selectable（用 button/text 折行代替）；text 不换行需手动 wrap（全角2宽/52折行）
+- **DMF keybind**：default_value={"f8"} 数组格式（default_key 无效）；T 键=游戏标记冲突
+- **待办**：用户明测 F8+折行 → 填完整词条（校对定稿后）→ 打包发布
 
 ## 七、待办
 
@@ -117,7 +157,7 @@ term_db/
 - [ ] 游戏内 mod 化（`/term 撕裂` 聊天查询或界面）
 - [ ] **大漩涡编号剩余未确认**：Ⅵ（渣滓阵营？）、Ⅷ（远程为主，反推待实测）、X/XI/XII/H（持续腐化/低游荡/无敌群/更多巡逻队/瘟疫毒气？）——玩家实测任务板后补
 - [ ] **5 个 WIP 词条待实测**：持续腐化伤害/低刷新密度/低游荡/无敌群/更多巡逻队（实测后去 WIP）
-- [ ] 守护进程开机自启（当前重启电脑后需手动启动）
+- [x] 守护进程开机自启（启动文件夹 term_db_autoreply.vbs，隐藏窗口，已验证；移除=删 vbs）
 - [ ] 校对表邮件自动检查（cron 每日 fetch --merge，待用户确认）——已配好 `reviews/.mail_config.json`（cijhuidi7788@qq.com）
 
 ## 八、踩坑速查与问题沉淀（2026-08-18 更新，防重蹈）
